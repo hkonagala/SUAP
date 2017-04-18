@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SUAP</string>
+    <string name="title_activity_email">EmailActivity</string>
+
+    <string-array name="location_array">
+        <item>pickup location</item>
+        <item>Performing Arts</item>
+        <item>Commons</item>
+        <item>Physics Building</item>
+        <item>Admin Building</item>
+        <item>Walker Avenue</item>
+        <item>Dorms</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>
