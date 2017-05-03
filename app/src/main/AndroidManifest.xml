@@ -18,10 +18,13 @@
         <activity android:name=".BeginningActivity" />
         <activity android:name=".ProfileCreation" />
         <activity android:name=".MainMenu" />
-        <activity android:name=".VerificationPage" />
-        <activity android:name=".VerificationSuccess" />
         <activity android:name=".CampusMap" />
-        <activity android:name=".Finder"></activity>
+        <activity android:name=".Finder" />
+        <activity android:name=".FoundMatch" />
+        <activity android:name=".DriverProfile" />
+        <activity android:name=".DriverArriving" />
+        <activity android:name=".Driving" />
+        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>
