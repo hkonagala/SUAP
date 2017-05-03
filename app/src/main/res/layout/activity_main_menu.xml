@@ -1,83 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:background="#333937"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<RelativeLayout
     android:id="@+id/activity_main_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333937"
+    android:clickable="true"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#333937"
     tools:context="com.example.ll.suap.MainMenu">
 
     <Button
-        android:text="CAMPUS MAP"
-        android:textColor="#FFFFFF"
-        android:textSize="16dp"
-        android:background="@drawable/roundedgreenrectangle"
+        android:id="@+id/button4"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="38dp"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
         android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_alignStart="@+id/button3"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/roundedgreenrectangle"
+        android:text="CAMPUS MAP"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
 
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="5dp"
         android:layout_height="25dp"
-        android:id="@+id/textView8"
-        android:layout_above="@+id/button4"
+        android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="43dp" />
 
     <Button
-        android:text="FIND RIDE"
-        android:textColor="#FFFFFF"
-        android:textSize="16dp"
-        android:background="@drawable/roundedgreenrectangle"
+        android:id="@+id/button3"
         android:layout_width="200dp"
         android:layout_height="75dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/imageView5"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/roundedgreenrectangle"
+        android:text="FIND RIDE"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/passenger"
-        android:id="@+id/imageView5"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="79dp"
+        app:srcCompat="@drawable/passenger" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_marginTop="21dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1"
-        android:visibility="invisible"
-        android:layout_marginBottom="17dp"
-        android:layout_alignBottom="@+id/imageView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_toLeftOf="@+id/textView8"
-        android:layout_toStartOf="@+id/textView8" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/button2"
-        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/textView8"
         android:layout_toRightOf="@+id/textView8"
-        android:layout_toEndOf="@+id/textView8" />
+        android:background="@android:color/transparent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#333937"
+        android:minHeight="?attr/actionBarSize" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/toolbar"
+        android:background="#95989A" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/icon3"
+        android:layout_above="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3"
+        android:background="@drawable/sidebar" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/button3"
+        android:layout_toRightOf="@+id/button3"
+        android:background="@drawable/bellalert" />
+
+
 </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/drawerView"
+        android:layout_width="175dp"
+        android:background="#333937"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="start">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/personicon" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:background="@drawable/roundedgreenrectangle"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/button8"
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedgreenrectangle"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
