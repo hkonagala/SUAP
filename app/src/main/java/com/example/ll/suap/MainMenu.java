@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -24,9 +25,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         toggle = (ImageView)findViewById(R.id.imageView2);
-        passenger = (Button) findViewById(R.id.button1);
-        driver = (Button)findViewById(R.id.button2);
-        finder = (Button)findViewById(R.id.button3);
+        passenger = (Button) findViewById(R.id.button);
+        driver = (Button)findViewById(R.id.button3);
+        finder = (Button)findViewById(R.id.button2);
         map = (Button)findViewById(R.id.button4);
         menu = (Button)findViewById(R.id.button5);
         profile = (Button)findViewById(R.id.button7);
@@ -47,7 +48,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
 public void onClick(View v){
     switch(v.getId()){
-        case R.id.button1:
+        case R.id.button:
             pass = true;
             toggle.setImageResource(R.drawable.passenger);
             finder.setBackgroundResource(R.drawable.roundedgreenrectangle);
@@ -56,7 +57,7 @@ public void onClick(View v){
             profile.setBackgroundResource(R.drawable.roundedgreenrectangle);
             logout.setBackgroundResource(R.drawable.roundedgreenrectangle);
             break;
-        case R.id.button2:
+        case R.id.button3:
             pass = false;
             toggle.setImageResource(R.drawable.driver);
             finder.setBackgroundResource(R.drawable.roundedbluerectangle);
@@ -65,7 +66,7 @@ public void onClick(View v){
             profile.setBackgroundResource(R.drawable.roundedbluerectangle);
             logout.setBackgroundResource(R.drawable.roundedbluerectangle);
             break;
-        case R.id.button3:
+        case R.id.button2:
             if(pass)
                 startActivity(new Intent(MainMenu.this, Finder.class));
             else

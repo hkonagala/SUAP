@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class BeginningActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -31,7 +32,7 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beginning);
         loginButton = (Button) findViewById(R.id.loginButton);
-        createProfile = (Button) findViewById(R.id.button2);
+        createProfile = (Button) findViewById(R.id.button);
         email = (EditText) findViewById(R.id.editText);
         password = (EditText) findViewById(R.id.editText2);
 
@@ -39,15 +40,14 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
         createProfile.setOnClickListener(this);
 
         progressDialog = new ProgressDialog(this);
-
         mAuth = FirebaseAuth.getInstance();
 
         //check if user already logged in and if so bypass and move to main menu
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(this, MainMenu.class));
-
         }
+
     }
     //method for user login
     private void userLogin() {
@@ -96,8 +96,8 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
                 case R.id.loginButton:
                     userLogin();
                     break;
-                case R.id.button2:
-                    startActivity(new Intent(this, ProfileCreation.class));
+                case R.id.button:
+                    startActivity(new Intent(BeginningActivity.this, ProfileCreation.class));
                     break;
             }
         }
