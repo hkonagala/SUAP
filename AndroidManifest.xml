@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ll.suap">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".AppOpen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BeginningActivity" />
+        <activity android:name=".ProfileCreation" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".CampusMap" />
+        <activity android:name=".Finder" />
+        <activity android:name=".FoundMatch" />
+        <activity android:name=".OtherProfile" />
+        <activity android:name=".DriverArriving" />
+        <activity android:name=".Driving" />
+        <activity android:name=".Profile" />
+        <activity android:name=".DriverFoundMatch"></activity>
+    </application>
+
+</manifest>
