@@ -25,15 +25,14 @@
         <activity android:name=".DriverArriving" />
         <activity android:name=".Driving" />
         <activity android:name=".Profile" />
-        <activity android:name=".DriverFoundMatch">
-        </activity>
+        <activity android:name=".DriverFoundMatch"></activity>
 
         <service
             android:name=".MatchingService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
+        <activity android:name=".ProfileCreation2"></activity>
     </application>
 
 </manifest>
