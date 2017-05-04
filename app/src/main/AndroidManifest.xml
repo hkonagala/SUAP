@@ -21,15 +21,19 @@
         <activity android:name=".CampusMap" />
         <activity android:name=".Finder" />
         <activity android:name=".FoundMatch" />
-        <activity android:name=".DriverProfile" />
+        <activity android:name=".OtherProfile" />
         <activity android:name=".DriverArriving" />
         <activity android:name=".Driving" />
         <activity android:name=".Profile" />
+        <activity android:name=".DriverFoundMatch">
+        </activity>
 
         <service
             android:name=".MatchingService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+        </service>
+
     </application>
 
 </manifest>
