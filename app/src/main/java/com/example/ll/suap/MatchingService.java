@@ -107,7 +107,7 @@ public class MatchingService extends IntentService {
                     myDatabase.child(myKey).child("matched").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.child(myKey).child("matched").equals(true))){
+                            if (dataSnapshot.child(myKey).child("matched").equals(true)){
                                 UserInformation myMatchedUser;
                                 //who are they
                                 partnerKey = myDatabase.child(myKey).child("match").toString();
@@ -143,7 +143,7 @@ public class MatchingService extends IntentService {
                         public void onCancelled(DatabaseError databaseError) {
 
                         }
-                    })
+                    });
 
                 }
             }
