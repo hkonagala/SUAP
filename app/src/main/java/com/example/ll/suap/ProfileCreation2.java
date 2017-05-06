@@ -57,7 +57,7 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
         String permitText = permitType.getSelectedItem().toString().trim();
 
         //creating a userinformation object
-        UserInformation userInformation = new UserInformation(nameText,phoneText,makeModelText,yearText,colorText,permitText);
+        UserInformation userInformation = new UserInformation("", "",nameText,phoneText,makeModelText,yearText,colorText,permitText);
 
         //adding information to database
         databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(userInformation);
