@@ -20,6 +20,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Time;
 
+
+
+//Please see the following source on how to use this service:
+// fairly straightforward result receiver needed from activity
+//for the following service to function
+//http://ramdroid.github.io/androiddev/ResultReceiverDemo.html
+//see github link at bottom for example on how to intergrate into activity
+
 public class MatchingService extends IntentService {
 
     ResultReceiver resultReceiver;
