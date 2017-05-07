@@ -25,7 +25,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         toggle = (ImageView)findViewById(R.id.imageView2);
-        passenger = (Button) findViewById(R.id.button);
+        passenger = (Button) findViewById(R.id.button1);
         driver = (Button)findViewById(R.id.button3);
         finder = (Button)findViewById(R.id.button2);
         map = (Button)findViewById(R.id.button4);
@@ -48,7 +48,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
 public void onClick(View v){
     switch(v.getId()){
-        case R.id.button:
+        case R.id.button1:
             pass = true;
             toggle.setImageResource(R.drawable.passenger);
             finder.setBackgroundResource(R.drawable.roundedgreenrectangle);

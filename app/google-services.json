@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "737504871553",
-    "firebase_url": "https://suap-1b327.firebaseio.com",
-    "project_id": "suap-1b327",
-    "storage_bucket": "suap-1b327.appspot.com"
+    "project_number": "546284235025",
+    "firebase_url": "https://suap-1c61c.firebaseio.com",
+    "project_id": "suap-1c61c",
+    "storage_bucket": "suap-1c61c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:737504871553:android:df61e0309cb05807",
+        "mobilesdk_app_id": "1:546284235025:android:df61e0309cb05807",
         "android_client_info": {
           "package_name": "com.example.ll.suap"
         }
       },
       "oauth_client": [
         {
-          "client_id": "737504871553-nntcgu609egvpsm401oqog5t6urchm3i.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.ll.suap",
-            "certificate_hash": "cbc724763e92a0326c81c5ed02275561dbf74572"
-          }
-        },
-        {
-          "client_id": "737504871553-iobkcg44l5nr8ohi4butu2nnr73lol0r.apps.googleusercontent.com",
+          "client_id": "546284235025-aa3ne9u572llcvo4suv91jakp1fn0q5b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAC4c8a4eQ5XL5OQSfJkGGdvIWZcuyy4z4"
+          "current_key": "AIzaSyAakbj_ipNp8Ld0gVKvysGX64Z2FwzoiDc"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "737504871553-iobkcg44l5nr8ohi4butu2nnr73lol0r.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

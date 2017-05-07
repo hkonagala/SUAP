@@ -23,9 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_alignEnd="@+id/button2"
-        android:layout_alignLeft="@+id/button"
+        android:layout_alignLeft="@+id/buttonRegister"
         android:layout_alignRight="@+id/button2"
-        android:layout_alignStart="@+id/button"
+        android:layout_alignStart="@+id/buttonRegister"
         android:layout_below="@+id/toolbar"
         android:layout_marginBottom="50dp"
         android:background="#95989A" />
@@ -42,7 +42,7 @@
         android:layout_alignTop="@+id/toolbar" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/sidebar"
@@ -159,7 +159,7 @@
         android:text="INFO HERE" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView15"

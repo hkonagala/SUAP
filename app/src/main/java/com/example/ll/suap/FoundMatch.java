@@ -2,6 +2,7 @@ package com.example.ll.suap;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_found_match);
-        driver = (Button)findViewById(R.id.button1);
+        driver = (Button)findViewById(R.id.buttonPassenger);
         menu = (Button)findViewById(R.id.button2);
         confirm = (Button)findViewById(R.id.button4);
         call = (Button)findViewById(R.id.button5);
@@ -39,17 +40,17 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.closeDrawer(Gravity.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         mAuth = FirebaseAuth.getInstance();
     }
 
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.button1:
+            case R.id.buttonPassenger:
                 startActivity(new Intent(this, DriverProfile.class));
                 break;
             case R.id.button2:
-                mDrawerLayout.openDrawer(Gravity.START);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.button4:
                 startActivity(new Intent(this, DriverArriving.class));

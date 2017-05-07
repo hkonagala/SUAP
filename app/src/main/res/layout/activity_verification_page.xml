@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:background="@drawable/roundedgreenrectangle"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/et_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:id="@+id/button4" />
@@ -31,7 +31,7 @@
         android:textAlignment="center"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/et_name"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textView"
         android:layout_marginTop="40dp"/>

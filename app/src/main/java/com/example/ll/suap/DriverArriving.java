@@ -1,6 +1,7 @@
 package com.example.ll.suap;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_arriving);
-        menu = (Button)findViewById(R.id.button);
+        menu = (Button)findViewById(R.id.buttonRegister);
         complete = (Button)findViewById(R.id.button2);
         missed = (Button)findViewById(R.id.button3);
         profile = (Button)findViewById(R.id.button5);
@@ -34,15 +35,15 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
         //implement map here
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.closeDrawer(Gravity.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.button:
-                mDrawerLayout.openDrawer(Gravity.START);
+            case R.id.buttonRegister:
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case(R.id.button2):
                 //add successful ride to driver's page

@@ -15,11 +15,11 @@
         android:text="Name"
         android:textColor="#ede698"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/et_name"
+        android:layout_alignStart="@+id/et_name" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -34,13 +34,13 @@
         android:layout_height="wrap_content"
         android:text="Phone Number (Numbers Only)"
         android:textColor="#ede698"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/et_name"
         android:layout_marginTop="15dp"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/et_name"
+        android:layout_alignStart="@+id/et_name" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -55,9 +55,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/et_phone"
+        android:layout_alignStart="@+id/et_phone"
+        android:layout_below="@+id/et_phone"
         android:layout_marginTop="15dp"
         android:text="Car Make And Model"
         android:textColor="#ede698" />
@@ -72,25 +72,25 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3"
         android:layout_marginTop="15dp"
-        android:id="@+id/editText3" />
+        android:id="@+id/et_model" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_below="@+id/editText3"
+        android:layout_alignLeft="@+id/et_model"
+        android:layout_alignStart="@+id/et_model"
+        android:layout_below="@+id/et_model"
         android:layout_marginTop="15dp"
         android:text="Car Year"
         android:textColor="#ede698" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/et_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText3"
-        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/et_model"
+        android:layout_alignRight="@+id/et_model"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="15dp"
         android:background="@drawable/roundedrectangle"
@@ -101,15 +101,15 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/et_year"
+        android:layout_alignStart="@+id/et_year"
+        android:layout_below="@+id/et_year"
         android:layout_marginTop="15dp"
         android:text="Car Color"
         android:textColor="#ede698" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/et_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
@@ -121,28 +121,28 @@
         android:inputType="text" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@drawable/roundedgreenrectangle"
         android:text="Register"
         android:textColor="#FFFFFF"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/spinner_permit"
         android:layout_centerHorizontal="true" />
 
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_permit"
         android:background="@drawable/roundedrectangle"
         android:layout_width="match_parent"
         android:layout_height="23dp"
         android:entries="@array/permit_array"
         android:spinnerMode="dropdown"
-        android:layout_alignEnd="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignRight="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
+        android:layout_alignEnd="@+id/et_color"
+        android:layout_alignLeft="@+id/et_color"
+        android:layout_alignRight="@+id/et_color"
+        android:layout_alignStart="@+id/et_color"
         android:layout_below="@+id/textView6"
         android:textColor="#000000"
         android:layout_marginTop="15dp" />
@@ -154,9 +154,9 @@
         android:text="Permit Type"
         android:textColor="#ede698"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_below="@+id/et_color"
+        android:layout_alignLeft="@+id/et_color"
+        android:layout_alignStart="@+id/et_color" />
 
 
 

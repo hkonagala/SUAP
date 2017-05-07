@@ -20,6 +20,7 @@ public class ActiveUser {
 
 
     //all from UserInformation
+    public String userId;
     public String name;
     public String phone;
     public String makeModel;
@@ -31,15 +32,18 @@ public class ActiveUser {
     UserType myType;
     Timestamp time;
 
+    public ActiveUser(String userId, String name, String phone, String makeModel, String year, String color, String permit, UserType myType, Timestamp time) {
+        this.userId = userId;
+        this.name = name;
+        this.phone = phone;
+        this.makeModel = makeModel;
+        this.year = year;
+        this.color = color;
+        this.permit = permit;
+        this.myType = myType;
+        this.time = time;
+    }
 
-    public ActiveUser(UserInformation me, UserType type) {
-        time.setTime(System.currentTimeMillis());
-        name=me.name;
-        phone=me.phone;
-        makeModel=me.makeModel;
-        year=me.year;
-        color=me.color;
-        permit=me.permit;
-        myType=type;
+    public ActiveUser() {
     }
 }

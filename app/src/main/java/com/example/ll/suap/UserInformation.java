@@ -1,8 +1,8 @@
 package com.example.ll.suap;
 
 public class UserInformation {
+    public String userId;
     public String email;
-    public String password;
     public String name;
     public String phone;
     public String makeModel;
@@ -14,25 +14,24 @@ public class UserInformation {
     public Boolean matched;
     public String match;
 
+    // Removed password from here as Firebase Auth will handle that
+    // By retrieving the user id, we can uniquely identify the user in database
 
-    public UserInformation(String emai, String pass, String nam, String phon, String makeandmod,
-                           String yea, String colo, String permi){
-        email = emai;
-        password = pass;
-        name = nam;
-        phone = phon;
-        makeModel = makeandmod;
-        year = yea;
-        color = colo;
-        permit = permi;
+    public UserInformation(String userId, String email, String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match) {
+        this.userId = userId;
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.makeModel = makeModel;
+        this.year = year;
+        this.color = color;
+        this.permit = permit;
+        this.timestamp = timestamp;
+        this.matched = matched;
+        this.match = match;
+    }
 
-        //not active yet
-        timestamp=null;
-
-        matched=null;
-        match=null;
-
-
+    public UserInformation() {
 
     }
 }

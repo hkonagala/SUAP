@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.3.1_ea0b8527a62baaa0be85ee87d27e0dd1a23881c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cbd5d344b13f4338c5d57ec9689f844533954d49">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_69868b60313c20cdd330663b20d3e04bd9d06695\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.2.4_db8cbc46d4235bdacfdd177c673f65aace33da35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.2_935fd314fd0b3a6e83d4ee955044fe756547e72c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Harika Konagala\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_b9c738b6e4ce0c95fa6d907bd1ef85f25344d095\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="43df709c95f6b0501b3adbc7da992b6a69a03214">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.2.4_c2e4dd8b8efcd3af44db4a9cddf0be4f8fa5f187\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.3.1_69dad8bf87beebe113fea36558073092b27ad5b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.3.1_fd91255e6f2d79823e6ff7baa0b859664683219a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.3.1_7da2c5b738a9d073396d93ba66e86cb5231f7292\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.3.1_e0ac1ba5507947404d8c22cba4e0325cef631557\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="54933c89f90a872aa342004e82b23e776fe12736">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.2.4_a2bfdcd6211002d15b127175d1fd25e6180e1926\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="143e5647b772c08c9f0d807b24bbc0b05ff6c7d2">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.2.4_b16ac9e36a648c24aae146be06c5cd7164440835\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.2.4_13f8a3af0cc2306018189eb5213b319ec0b967a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="29e4e634375ab2ed25f8db5387b564c78980422a">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.2.4_08de7fdc26839f882ffc178b454a152d0efd41b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.3.1_fd6e0c102ad7671e282db91c3f1c2235a4067b83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.2.4_93877abc9d0a063a76cb242125e4332d87d4505f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.3.1_8dd610b386f482b5ad2e8851e63c89d421178435\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6b8ad09b76c4ffaedf443ca54bc2418760870689">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.2.4_4d2a207c05cae812927df04b7e18fffe1d66915b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8748e15968514ff1708deb3bb7f0c17623e50bbb">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.2.4_15f83598b5e571c9e3388347e4a14ed8614064dd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.3.1_3f305605b129a1667959b4dd5db21c0d8903aa0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.2.4_3124109ca9dccb573d7993d7832e94b87fd098a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="143e5647b772c08c9f0d807b24bbc0b05ff6c7d2">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.2.4_f5724d12a5febaa0c46e50374a068b192fd001ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c1e01110a123ea35f54984e67edba679d512cf1c">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8fd7c9870ff8767e2bb3c4586e4d9ba144a7b2df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Harika Konagala\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_6fdaeff018f26b28848865bb58df67d68fa6287e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.3.1_9b46261b6488e0a34ad688c9147e3409d3a057ff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.3.1_c07042acaf005043e2a5993d7c6f161959bb5b2b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4eeba61bbc47e49a5fbdfd9aa21af5d10bf4df7c">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.2.4_ed41cbcec380f3e22a42b667b5d6693176efa09c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.3.1_ff5cf078a69bda9f254bae63b89b0c95ef8497ec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="29e4e634375ab2ed25f8db5387b564c78980422a">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.2.4_74214f791ffc78c17dd3a280f3a86e91e8007b97\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b50fe5288bba9d1635ba619bd3c308319205543e">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.2.4_688efeedf995c8a23c448cdae8ac8dc22f34174e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.3.1_0dba24d7faa2f7ee916b2a252c7cc949a2f3f24d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.3.1_5ae400dc7181a74b43427c89ed9eb0a3d7aba7a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="98ac18f891a8279ae57c4771cbf4a2a65f95b04c">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.2.4_f1710edbadd01ea870ac4fe1be79a445b5584391\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.2.4_d57864ffc146e66d8783fb21dcf9342070a1cb3a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.3.1_37701cbb321dd8ffa2d35484aa50c1e67552d9ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b50fe5288bba9d1635ba619bd3c308319205543e">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.2.4_28c2ec2746f7669b1c8f3be3ce6745cedd60e74e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.3.1_3ad5628f22a6ecdced1be2264eda53461ce9b643\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.3.1_3ec80d4cdd62287103d29199ac8af2a29be9a70b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.2_bab545af678834a7129541413c4053b2033b1b09\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cf5a45955b7a25527102ac4fe9eb9b1e2ea64c85">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_70ced4783c0814a0954c1bf531cb880317ac029e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9f5fba940c87848c706bc1ecb864a4d544e60e40">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_2c7d62ff232759f2fa18578ee6622451d0a11f34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.3.1_768d72c16c6f5de28f1bd74f91dde26d29d5b94b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.3.1_c8766ed08bd9573619431a12c93b086f950df251\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4eeba61bbc47e49a5fbdfd9aa21af5d10bf4df7c">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.2.4_b860111630b4e3f000f418c1b78cb707ee1409c1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="98ac18f891a8279ae57c4771cbf4a2a65f95b04c">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.2.4_b1e6f8455b1cf27cfe6f19e1908a5d675d4402e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.2.4_e812ad19fe697b4867c1064a28444c7142d97b6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.3.1_08f85990204768a6db5a6935d6c4a332972adb7a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.3.1_630377ebbafa39d6849a24aa41e735a12bc62282\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.3.1_f9f531746ac294d2c3790c63a2f3f09db4720538\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.3.1_eeff6e70132be458dd7c2225f6d9492da18e334a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.3.1_253ada805eff94718d706e44254ab5a48e496b7a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.2.4_94ca3830277f609faccad78f5207194356b89eaf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.3.1_0d403ceefc5b65aef81e275935ee5bb4a48d0935\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.2.4_e7c615d6e6d0e2a6ad63297c69408cd880ff6c00\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6b8ad09b76c4ffaedf443ca54bc2418760870689">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.2.4_59ba00a82c00cfafb459b87613ed3e31f5b93723\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="54933c89f90a872aa342004e82b23e776fe12736">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.2.4_5958734282992863ce5fee3e5ec1afa7116d42e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8748e15968514ff1708deb3bb7f0c17623e50bbb">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.2.4_d3a4777d7d29d6e659a0ef10a93151f87adcbd15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="43df709c95f6b0501b3adbc7da992b6a69a03214">
+        <dex dex="D:\SUAP_628-master\SUAP_628-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.2.4_21b74a941111cfad4db846ee370865937f24af07\classes.dex" />
+    </item>
+
+</items>
