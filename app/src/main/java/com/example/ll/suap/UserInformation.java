@@ -13,11 +13,14 @@ public class UserInformation {
     public Long timestamp;
     public Boolean matched;
     public String match;
+    public double latitude;
+    public double longitude;
 
     // Removed password from here as Firebase Auth will handle that
     // By retrieving the user id, we can uniquely identify the user in database
 
-    public UserInformation(String userId, String email, String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match) {
+
+    public UserInformation(String userId, String email, String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude) {
         this.userId = userId;
         this.email = email;
         this.name = name;
@@ -29,6 +32,8 @@ public class UserInformation {
         this.timestamp = timestamp;
         this.matched = matched;
         this.match = match;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public UserInformation() {

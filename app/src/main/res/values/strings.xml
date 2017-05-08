@@ -22,6 +22,8 @@
         <item>D</item>
         <item>E</item>
     </string-array>
+    <string name="title_activity_umbc_maps">Map</string>
+    <string name="GMAPS_API_KEY">AIzaSyAPc6UKteA3NphTowYNmuPwzfXJvJifUzA</string>
 
 
 </resources>

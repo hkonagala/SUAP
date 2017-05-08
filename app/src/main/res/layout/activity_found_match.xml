@@ -104,7 +104,7 @@
             app:srcCompat="@drawable/matchicon" />
 
         <Button
-            android:id="@+id/buttonPassenger"
+            android:id="@+id/button"
             android:layout_width="125dp"
             android:layout_height="122dp"
             android:background="@drawable/personicon" />

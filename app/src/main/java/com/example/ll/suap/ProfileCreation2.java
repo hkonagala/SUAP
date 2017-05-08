@@ -36,7 +36,7 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
     ProgressDialog progressDialog;
     Handler handler = new Handler();
 
-    private static final String TAG = "ProfileCreationActivity: ";
+    private static final String TAG = "ProfileCreation";
     private DatabaseReference mydb;
     private DatabaseReference mydbchildusers;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -52,7 +52,7 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_creation2);
 
-        Intent myIntent = getIntent();
+        final Intent myIntent = getIntent();
         emailText = myIntent.getStringExtra("registeremail");
         passwordText = myIntent.getStringExtra("registerpassword");
         name = (EditText)findViewById(R.id.et_name);
@@ -77,7 +77,7 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
                 if(user != null){
                     long currentDate = Calendar.getInstance().getTimeInMillis();
                     UserInformation myUser = new UserInformation(mAuth.getCurrentUser().getUid(), emailText, nameText, phoneText, makeModelText
-                            , yearText, colorText, permitText, currentDate, false, "");
+                            , yearText, colorText, permitText, currentDate, false, "", 0, 0);
                     mydbchildusers.child(mAuth.getCurrentUser().getUid()).setValue(myUser);
                     handler.post(new RunOnMainUI("Registration Successful"));
                     // add items to shared preferences
@@ -93,6 +93,8 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
                     editor.putLong("user.timestamp", myUser.timestamp);
                     editor.putBoolean("user.matched", myUser.matched);
                     editor.putString("user.match", myUser.match);
+                    editor.putFloat("user.latitude", (float) myUser.latitude);
+                    editor.putFloat("user.longitude", (float) myUser.longitude);
                     editor.apply();
                     finish();
                     startActivity(new Intent(ProfileCreation2.this, MainMenu.class));

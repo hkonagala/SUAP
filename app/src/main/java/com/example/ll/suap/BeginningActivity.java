@@ -89,6 +89,8 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
                                 editor.putLong("user.timestamp", dbUser.timestamp);
                                 editor.putBoolean("user.matched", dbUser.matched);
                                 editor.putString("user.match", dbUser.match);
+                                editor.putFloat("user.latitude", (float) dbUser.latitude);
+                                editor.putFloat("user.longitude", (float) dbUser.longitude);
                                 editor.apply();
                                 finish();
                                 startActivity(new Intent(BeginningActivity.this, MainMenu.class));
@@ -201,7 +203,7 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
             }
         }
 
-    private class RunOnMainUI implements Runnable{
+    public class RunOnMainUI implements Runnable{
 
         String message;
 

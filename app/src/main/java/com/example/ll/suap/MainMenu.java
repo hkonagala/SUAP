@@ -1,6 +1,8 @@
 package com.example.ll.suap;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,11 +22,36 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     Button passenger, driver, finder, map, menu, profile, logout;
     ImageView toggle;
     boolean pass = true;
+    UserInformation userInformation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
+        SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if (user != null) {
+            userInformation = new UserInformation(user.getUid(),
+                    userDetails.getString("user.email", ""),
+                    userDetails.getString("user.name", ""),
+                    userDetails.getString("user.phone", ""),
+                    userDetails.getString("user.makeModel", ""),
+                    userDetails.getString("user.year", ""),
+                    userDetails.getString("user.color", ""),
+                    userDetails.getString("user.permit", ""),
+                    userDetails.getLong("user.timestamp", 0),
+                    userDetails.getBoolean("user.matched", false),
+                    userDetails.getString("user.match", ""),
+                    userDetails.getFloat("user.latitude", 0),
+                    userDetails.getFloat("user.longitude", 0)
+                    );
+        }else {
+            startActivity(new Intent(this, BeginningActivity.class));
+        }
+
         toggle = (ImageView)findViewById(R.id.imageView2);
         passenger = (Button) findViewById(R.id.button1);
         driver = (Button)findViewById(R.id.button3);
@@ -43,7 +71,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(Gravity.START);
-        mAuth = FirebaseAuth.getInstance();
+
     }
 
 public void onClick(View v){

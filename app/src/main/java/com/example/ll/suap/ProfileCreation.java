@@ -27,7 +27,7 @@ import org.json.JSONObject;
 
 public class ProfileCreation extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "ProfileCreationActivity: ";
+    private static final String TAG = "ProfileCreationActivity:";
 
     EditText email, password;
     Button register;
