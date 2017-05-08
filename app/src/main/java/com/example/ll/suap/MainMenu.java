@@ -1,6 +1,8 @@
 package com.example.ll.suap;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.ll.suap.ActiveUser.ActiveState.online;
+import static com.example.ll.suap.ActiveUser.UserType.Driver;
+import static com.example.ll.suap.ActiveUser.UserType.Rider;
+import static com.example.ll.suap.ActiveUser.status.available;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,19 +29,50 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     Button passenger, driver, finder, map, menu, profile, logout;
     ImageView toggle;
     boolean pass = true;
+    UserInformation userInformation;
+    private DatabaseReference mydb;
+    private DatabaseReference mydbactiveusers;
+    private DatabaseReference mydbchildusers;
+    ActiveUser activeUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        toggle = (ImageView)findViewById(R.id.imageView2);
-        passenger = (Button) findViewById(R.id.button);
-        driver = (Button)findViewById(R.id.button3);
-        finder = (Button)findViewById(R.id.button2);
-        map = (Button)findViewById(R.id.button4);
-        menu = (Button)findViewById(R.id.button5);
-        profile = (Button)findViewById(R.id.button7);
-        logout = (Button)findViewById(R.id.button8);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        mydb = FirebaseDatabase.getInstance().getReference();
+        mydbactiveusers = mydb.child("active_users");
+        //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
+        SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if (user != null) {
+            userInformation = new UserInformation(user.getUid(),
+                    userDetails.getString("user.email", ""),
+                    userDetails.getString("user.name", ""),
+                    userDetails.getString("user.phone", ""),
+                    userDetails.getString("user.makeModel", ""),
+                    userDetails.getString("user.year", ""),
+                    userDetails.getString("user.color", ""),
+                    userDetails.getString("user.permit", ""),
+                    userDetails.getLong("user.timestamp", 0),
+                    userDetails.getBoolean("user.matched", false),
+                    userDetails.getString("user.match", ""),
+                    userDetails.getFloat("user.latitude", 0),
+                    userDetails.getFloat("user.longitude", 0)
+                    );
+        }else {
+            startActivity(new Intent(this, BeginningActivity.class));
+        }
+
+        toggle = (ImageView)findViewById(R.id.main_toggleimage);
+        passenger = (Button) findViewById(R.id.main_passengerbutton);
+        finder = (Button)findViewById(R.id.main_finderbutton);
+        driver = (Button)findViewById(R.id.main_driverbutton);
+        map = (Button)findViewById(R.id.main_mapbutton);
+        menu = (Button)findViewById(R.id.main_menubutton);
+        profile = (Button)findViewById(R.id.main_profilebutton);
+        logout = (Button)findViewById(R.id.main_logoutbutton);
 
         passenger.setOnClickListener(this);
         driver.setOnClickListener(this);
@@ -43,12 +84,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(Gravity.START);
-        mAuth = FirebaseAuth.getInstance();
+
     }
 
 public void onClick(View v){
     switch(v.getId()){
-        case R.id.button:
+        case R.id.main_passengerbutton:
             pass = true;
             toggle.setImageResource(R.drawable.passenger);
             finder.setBackgroundResource(R.drawable.roundedgreenrectangle);
@@ -57,7 +98,7 @@ public void onClick(View v){
             profile.setBackgroundResource(R.drawable.roundedgreenrectangle);
             logout.setBackgroundResource(R.drawable.roundedgreenrectangle);
             break;
-        case R.id.button3:
+        case R.id.main_driverbutton:
             pass = false;
             toggle.setImageResource(R.drawable.driver);
             finder.setBackgroundResource(R.drawable.roundedbluerectangle);
@@ -65,27 +106,49 @@ public void onClick(View v){
             map.setBackgroundResource(R.drawable.roundedbluerectangle);
             profile.setBackgroundResource(R.drawable.roundedbluerectangle);
             logout.setBackgroundResource(R.drawable.roundedbluerectangle);
+            getDriverInfo();
             break;
-        case R.id.button2:
+        case R.id.main_finderbutton:
             if(pass)
                 startActivity(new Intent(MainMenu.this, Finder.class));
             else
                 startActivity(new Intent(MainMenu.this,Driving.class));
             break;
-        case R.id.button4:
+        case R.id.main_mapbutton:
             startActivity(new Intent(MainMenu.this, CampusMap.class));
             break;
-        case R.id.button5:
+        case R.id.main_menubutton:
             mDrawerLayout.openDrawer(Gravity.START);
             break;
-        case R.id.button7:
+        case R.id.main_profilebutton:
             startActivity(new Intent(MainMenu.this,Profile.class));
             break;
-        case R.id.button8:
+        case R.id.main_logoutbutton:
             mAuth.signOut();
             finish();
             startActivity(new Intent(MainMenu.this,BeginningActivity.class));
             break;
     }
 }
+
+    private void getDriverInfo() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user!=null){
+            activeUser = new ActiveUser(user.getUid(),
+                    userInformation.name,
+                    userInformation.phone,
+                    userInformation.makeModel,
+                    userInformation.year,
+                    userInformation.color,
+                    userInformation.permit,
+                    userInformation.latitude,
+                    userInformation.longitude,
+                    Driver,
+                    userInformation.timestamp,
+                    online,
+                    available
+            );
+        }
+    }
+
 }

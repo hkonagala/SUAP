@@ -92,8 +92,9 @@ public class MatchingService extends IntentService {
                     //Long timestamp = Long.parseLong(child.child("timestamp").toString());
                     //Boolean matched = Boolean.parseBoolean(child.child("matched").toString());
                     //String match = child.child("match").toString();
-                    myMatchedUser = new UserInformation("", "", name, phone,
-                            makeModel, year, color, permit);
+                    //myMatchedUser = new UserInformation("", "", name, phone,
+                            //makeModel, year, color, permit);
+                    myMatchedUser = null;
                     myMatchedUser.matched = true;
                     myMatchedUser.match = myKey;
                     //edit partner
@@ -132,15 +133,15 @@ public class MatchingService extends IntentService {
                                 //Long timestamp = Long.parseLong(child.child("timestamp").toString());
                                 //Boolean matched = Boolean.parseBoolean(child.child("matched").toString());
                                 //String match = child.child("match").toString();
-                                myMatchedUser = new UserInformation("", "", name, phone,
-                                        makeModel, year, color, permit);
+                                //myMatchedUser = new UserInformation("", "", name, phone,
+                                  //      makeModel, year, color, permit);
 
 
 
 
                                 Bundle resultFinished = new Bundle();
-                                resultFinished.putParcelable(SERVICE_RETURN_UserInformation,
-                                        (Parcelable) myMatchedUser);
+                                //resultFinished.putParcelable(SERVICE_RETURN_UserInformation,
+                                  //      (Parcelable) myMatchedUser);
                                 resultReceiver.send(FINISHED, resultFinished);
 
                             }

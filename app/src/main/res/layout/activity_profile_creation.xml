@@ -12,15 +12,15 @@
     tools:context="com.example.ll.suap.ProfileCreation">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/profilecreate_tv_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="#ede698"
         android:layout_marginBottom="21dp"
-        android:layout_above="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_above="@+id/profilecreate_et_pwdl"
+        android:layout_alignLeft="@+id/profilecreate_et_pwdl"
+        android:layout_alignStart="@+id/profilecreate_et_pwdl" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -28,32 +28,31 @@
         android:inputType="text"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/profilecreate_et_pwdl"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/profilecreate_et_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
         android:inputType="text|textEmailAddress"
-        android:layout_above="@+id/textView2"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
+        android:layout_above="@+id/profilecreate_tv_pwd"
+        android:layout_alignLeft="@+id/profilecreate_tv_email"
+        android:layout_alignStart="@+id/profilecreate_tv_email"
         android:layout_marginBottom="32dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/profilecreate_buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@drawable/roundedgreenrectangle"
         android:text="Register"
         android:textColor="#FFFFFF"
         android:layout_marginTop="58dp"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/profilecreate_et_pwdl"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -61,11 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ede698"
-        android:id="@+id/textView"
+        android:id="@+id/profilecreate_tv_email"
         android:layout_marginLeft="72dp"
         android:layout_marginStart="72dp"
         android:layout_marginBottom="21dp"
-        android:layout_above="@+id/editText"
+        android:layout_above="@+id/profilecreate_et_email"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

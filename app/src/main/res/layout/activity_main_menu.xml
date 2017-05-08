@@ -21,12 +21,12 @@
     tools:context="com.example.ll.suap.MainMenu">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/main_mapbutton"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/main_finderbutton"
+        android:layout_alignStart="@+id/main_finderbutton"
+        android:layout_below="@+id/main_finderbutton"
         android:layout_marginTop="38dp"
         android:background="@drawable/roundedgreenrectangle"
         android:text="CAMPUS MAP"
@@ -37,15 +37,15 @@
         android:id="@+id/textView8"
         android:layout_width="5dp"
         android:layout_height="25dp"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/main_driverbutton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="43dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/main_finderbutton"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/main_toggleimage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
         android:background="@drawable/roundedgreenrectangle"
@@ -54,7 +54,7 @@
         android:textSize="16sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/main_toggleimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -64,22 +64,22 @@
         app:srcCompat="@drawable/passenger" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/main_passengerbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_toLeftOf="@+id/button2"
+        android:layout_alignTop="@+id/main_toggleimage"
+        android:layout_toLeftOf="@+id/main_driverbutton"
         android:layout_marginTop="21dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/main_driverbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBaseline="@+id/main_passengerbutton"
+        android:layout_alignBottom="@+id/main_passengerbutton"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_toEndOf="@+id/textView8"
@@ -107,18 +107,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/icon3"
-        android:layout_above="@+id/imageView2" />
+        android:layout_above="@+id/main_toggleimage" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/main_menubutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toolbar"
+        android:background="@drawable/sidebar"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toStartOf="@+id/button3"
-        android:background="@drawable/sidebar" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/button6"
@@ -128,8 +126,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/button3"
-        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/main_finderbutton"
+        android:layout_toRightOf="@+id/main_finderbutton"
         android:background="@drawable/bellalert" />
 
 
@@ -150,7 +148,7 @@
             app:srcCompat="@drawable/personicon" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/main_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
@@ -158,7 +156,7 @@
             android:textColor="#FFFFFF"/>
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/main_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
