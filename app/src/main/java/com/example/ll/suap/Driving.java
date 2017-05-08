@@ -63,10 +63,10 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
         }else {
             startActivity(new Intent(this, BeginningActivity.class));
         }
-        cancel = (Button) findViewById(R.id.buttonRegister);
-        menu = (Button) findViewById(R.id.button2);
-        profile = (Button)findViewById(R.id.button4);
-        logout = (Button)findViewById(R.id.button5);
+        cancel = (Button) findViewById(R.id.driving_cancelbutton);
+        menu = (Button) findViewById(R.id.driving_menubutton);
+        profile = (Button)findViewById(R.id.driving_profilebutton);
+        logout = (Button)findViewById(R.id.driving_logoutbutton);
 
         cancel.setOnClickListener(this);
         menu.setOnClickListener(this);
@@ -111,16 +111,16 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
 
         switch(v.getId()){
-            case R.id.buttonRegister:
+            case R.id.driving_cancelbutton:
                 startActivity(new Intent(Driving.this, MainMenu.class));
                 break;
-            case R.id.button2:
+            case R.id.driving_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case R.id.button4:
+            case R.id.driving_profilebutton:
                 startActivity(new Intent(Driving.this,Profile.class));
                 break;
-            case R.id.button5:
+            case R.id.driving_logoutbutton:
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(Driving.this,BeginningActivity.class));

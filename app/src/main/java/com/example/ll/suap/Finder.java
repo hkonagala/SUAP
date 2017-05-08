@@ -67,9 +67,9 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
         mydb = FirebaseDatabase.getInstance().getReference();
-        pickupLocation = (Spinner) findViewById(R.id.spinner);
+        pickupLocation = (Spinner) findViewById(R.id.finder_spinner_location);
         pickupLocation.setOnItemSelectedListener(this);
-        additionalInfo = (EditText) findViewById(R.id.editText8);
+        additionalInfo = (EditText) findViewById(R.id.finder_et_info);
 
         mydbchildusers = mydb.child("users");
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -92,12 +92,12 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        count = (TextView) findViewById(R.id.textView);
+        count = (TextView) findViewById(R.id.finder_tv_count);
        // eta = (TextView) findViewById(R.id.textView3);
-        finder = (Button) findViewById(R.id.button3);
-        menu = (Button) findViewById(R.id.button);
-        profile = (Button) findViewById(R.id.button4);
-        logout = (Button) findViewById(R.id.button5);
+        finder = (Button) findViewById(R.id.finder_pickupbutton);
+        menu = (Button) findViewById(R.id.finder_menubutton);
+        profile = (Button) findViewById(R.id.finder_profilebutton);
+        logout = (Button) findViewById(R.id.finder_logoutbutton);
 
         finder.setOnClickListener(this);
         menu.setOnClickListener(this);
@@ -146,16 +146,16 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
     public void onClick(View v)
     {
         switch(v.getId()) {
-            case R.id.button3:
+            case R.id.finder_pickupbutton:
                 getActiveRiderInfo();
                 break;
-            case R.id.button2:
+            case R.id.finder_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case R.id.button4:
+            case R.id.finder_profilebutton:
                 startActivity(new Intent(Finder.this,Profile.class));
                 break;
-            case R.id.button5:
+            case R.id.finder_logoutbutton:
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(Finder.this,BeginningActivity.class));

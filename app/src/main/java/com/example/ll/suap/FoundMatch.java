@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Random;
 
 import static com.example.ll.suap.ActiveUser.status.available;
-import static com.example.ll.suap.R.id.button6;
+import static com.example.ll.suap.R.id.foundmatch_cancelbutton;
 
 public class FoundMatch extends AppCompatActivity implements View.OnClickListener{
 
@@ -33,6 +34,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     String pickupLocation, additionalInfo, driverName, driverPhone;
     int driverId;
     private ActiveUser driverUser;
+    ImageView passengerImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +73,15 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        driver = (Button)findViewById(R.id.button);
-        menu = (Button)findViewById(R.id.button2);
-        confirm = (Button)findViewById(R.id.button4);
-        call = (Button)findViewById(R.id.button5);
-        cancel = (Button)findViewById(button6);
-        profile = (Button)findViewById(R.id.button7);
-        logout = (Button)findViewById(R.id.button8);
+        driver = (Button)findViewById(R.id.foundmatch_driverbutton);
+        menu = (Button)findViewById(R.id.foundmatch_menubutton);
+        confirm = (Button)findViewById(R.id.foundmatch_confirmbutton);
+        call = (Button)findViewById(R.id.foundmatch_callbutton);
+        cancel = (Button)findViewById(foundmatch_cancelbutton);
+        profile = (Button)findViewById(R.id.foundmatch_profilebutton);
+        logout = (Button)findViewById(R.id.foundmatch_logoutbutton);
+        passengerImage = (ImageView) findViewById(R.id.foundmatch_passengerimgage); 
+        
 
         //TODO display passenger name/picture in imageview2
         driver.setOnClickListener(this);
@@ -102,13 +106,13 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
 
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.button:
+            case R.id.foundmatch_driverbutton:
                 startActivity(new Intent(this, DriverProfile.class));
                 break;
-            case R.id.button2:
+            case R.id.foundmatch_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case R.id.button4:
+            case R.id.foundmatch_confirmbutton:
                 getDriverInfo();
                 finish();
                 Intent myIntent = new Intent(FoundMatch.this, DriverArriving.class);
@@ -119,20 +123,20 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 myIntent.putExtra("additional_info", additionalInfo);
                 startActivity(myIntent);
                 break;
-            case R.id.button5:
+            case R.id.foundmatch_callbutton:
                 //get phone number in database and replace phone number below with driver #
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(driverPhone));
                 startActivity(intent);
                 break;
-            case button6:
+            case foundmatch_cancelbutton:
                 mydbactiveusers.child(String.valueOf(driverId)).child("status").setValue(available);
                 finish();
                 startActivity(new Intent(this, MainMenu.class));
                 break;
-            case R.id.button7:
+            case R.id.foundmatch_profilebutton:
                 startActivity(new Intent(FoundMatch.this,Profile.class));
                 break;
-            case R.id.button8:
+            case R.id.foundmatch_logoutbutton:
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(FoundMatch.this,BeginningActivity.class));

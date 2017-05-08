@@ -31,9 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_alignEnd="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
+        android:layout_alignLeft="@+id/driving_menubutton"
         android:layout_alignRight="@+id/button3"
-        android:layout_alignStart="@+id/button2"
+        android:layout_alignStart="@+id/driving_menubutton"
         android:layout_below="@+id/toolbar"
         android:layout_marginBottom="50dp"
         android:background="#95989A" />
@@ -50,7 +50,7 @@
         android:layout_alignTop="@+id/toolbar" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/driving_menubutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/sidebar"
@@ -109,7 +109,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/driving_cancelbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/imageView2"
@@ -139,7 +139,7 @@
             app:srcCompat="@drawable/personicon" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/driving_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
@@ -147,7 +147,7 @@
             android:textColor="#FFFFFF"/>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/driving_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

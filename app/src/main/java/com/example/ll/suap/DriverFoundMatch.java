@@ -67,15 +67,15 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         }else {
             startActivity(new Intent(this, BeginningActivity.class));
         }
-        menu = (Button)findViewById(R.id.buttonRegister);
-        profile = (Button)findViewById(R.id.button3);
-        logout = (Button)findViewById(R.id.button4);
-        confirm = (Button)findViewById(R.id.button5);
-        call = (Button)findViewById(R.id.button6);
-        cancel = (Button)findViewById(R.id.button7);
-        passenger = (Button)findViewById(R.id.button8);
-        driverName = (TextView) findViewById(R.id.textView9);
-        location_here = (TextView) findViewById(R.id.textView13);
+        menu = (Button)findViewById(R.id.driver_found_menubutton);
+        profile = (Button)findViewById(R.id.driver_found_profilebutton);
+        logout = (Button)findViewById(R.id.driver_found_logoutbutton);
+        confirm = (Button)findViewById(R.id.driver_found_confirmbutton);
+        call = (Button)findViewById(R.id.driver_found_callbutton);
+        cancel = (Button)findViewById(R.id.driver_found_cancelbutton);
+        passenger = (Button)findViewById(R.id.driver_found_passengerbutton);
+        driverName = (TextView) findViewById(R.id.driver_found_drivername_tv);
+        location_here = (TextView) findViewById(R.id.driver_found_location_tv);
 
 
         menu.setOnClickListener(this);
@@ -99,30 +99,30 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
 
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.buttonRegister:
+            case R.id.driver_found_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case R.id.button3:
+            case R.id.driver_found_profilebutton:
                 startActivity(new Intent(this,Profile.class));
                 break;
-            case R.id.button4:
+            case R.id.driver_found_logoutbutton:
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(this,BeginningActivity.class));
                 break;
-            case R.id.button5:
+            case R.id.driver_found_confirmbutton:
                 //TODO some link missing
                 startActivity(new Intent(this, MainMenu.class));
                 break;
-            case R.id.button6:
+            case R.id.driver_found_callbutton:
                 //get phone number in database and replace phone number below with passenger #
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(riderPhone));
                 startActivity(intent);
                 break;
-            case R.id.button7:
+            case R.id.driver_found_cancelbutton:
                 startActivity(new Intent(this, MainMenu.class));
                 break;
-            case R.id.button8:
+            case R.id.driver_found_passengerbutton:
                 startActivity(new Intent(this, OtherProfile.class));
                 break;
 

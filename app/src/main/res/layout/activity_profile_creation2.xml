@@ -8,56 +8,56 @@
     tools:context="com.example.ll.suap.ProfileCreation2">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profilecreate2_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Name"
         android:textColor="#ede698"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/et_name"
-        android:layout_alignStart="@+id/et_name" />
+        android:layout_alignLeft="@+id/profilecreate2_et_name"
+        android:layout_alignStart="@+id/profilecreate2_et_name" />
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/profilecreate2_et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/profilecreate2_tv_name"
         android:layout_centerHorizontal="true" />
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/profilecreate2_tv_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Phone Number (Numbers Only)"
         android:textColor="#ede698"
-        android:layout_below="@+id/et_name"
+        android:layout_below="@+id/profilecreate2_et_name"
         android:layout_marginTop="15dp"
-        android:layout_alignLeft="@+id/et_name"
-        android:layout_alignStart="@+id/et_name" />
+        android:layout_alignLeft="@+id/profilecreate2_et_name"
+        android:layout_alignStart="@+id/profilecreate2_et_name" />
 
     <EditText
-        android:id="@+id/et_phone"
+        android:id="@+id/profilecreate2_et_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
         android:inputType="phone"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_below="@+id/profilecreate2_tv_phone"
+        android:layout_alignLeft="@+id/profilecreate2_tv_phone"
+        android:layout_alignStart="@+id/profilecreate2_tv_phone" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/profilecreate2_tv_makemodel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_phone"
-        android:layout_alignStart="@+id/et_phone"
-        android:layout_below="@+id/et_phone"
+        android:layout_alignLeft="@+id/profilecreate2_et_phone"
+        android:layout_alignStart="@+id/profilecreate2_et_phone"
+        android:layout_below="@+id/profilecreate2_et_phone"
         android:layout_marginTop="15dp"
         android:text="Car Make And Model"
         android:textColor="#ede698" />
@@ -68,95 +68,95 @@
         android:inputType="text"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/profilecreate2_tv_makemodel"
+        android:layout_alignLeft="@+id/profilecreate2_tv_makemodel"
+        android:layout_alignStart="@+id/profilecreate2_tv_makemodel"
         android:layout_marginTop="15dp"
-        android:id="@+id/et_model" />
+        android:id="@+id/profilecreate2_et_model" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/profilecreate2_tv_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_model"
-        android:layout_alignStart="@+id/et_model"
-        android:layout_below="@+id/et_model"
+        android:layout_alignLeft="@+id/profilecreate2_et_model"
+        android:layout_alignStart="@+id/profilecreate2_et_model"
+        android:layout_below="@+id/profilecreate2_et_model"
         android:layout_marginTop="15dp"
         android:text="Car Year"
         android:textColor="#ede698" />
 
     <EditText
-        android:id="@+id/et_year"
+        android:id="@+id/profilecreate2_et_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/et_model"
-        android:layout_alignRight="@+id/et_model"
-        android:layout_below="@+id/textView4"
+        android:layout_alignEnd="@+id/profilecreate2_et_model"
+        android:layout_alignRight="@+id/profilecreate2_et_model"
+        android:layout_below="@+id/profilecreate2_tv_year"
         android:layout_marginTop="15dp"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/profilecreate2_tv_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_year"
-        android:layout_alignStart="@+id/et_year"
-        android:layout_below="@+id/et_year"
+        android:layout_alignLeft="@+id/profilecreate2_et_year"
+        android:layout_alignStart="@+id/profilecreate2_et_year"
+        android:layout_below="@+id/profilecreate2_et_year"
         android:layout_marginTop="15dp"
         android:text="Car Color"
         android:textColor="#ede698" />
 
     <EditText
-        android:id="@+id/et_color"
+        android:id="@+id/profilecreate2_et_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_below="@+id/textView5"
+        android:layout_alignLeft="@+id/profilecreate2_tv_color"
+        android:layout_alignStart="@+id/profilecreate2_tv_color"
+        android:layout_below="@+id/profilecreate2_tv_color"
         android:layout_marginTop="15dp"
         android:background="@drawable/roundedrectangle"
         android:ems="10"
         android:inputType="text" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/profilecreate2_buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@drawable/roundedgreenrectangle"
         android:text="Register"
         android:textColor="#FFFFFF"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/spinner_permit"
+        android:layout_below="@+id/profilecreate2_spinner_permit"
         android:layout_centerHorizontal="true" />
 
 
     <Spinner
-        android:id="@+id/spinner_permit"
+        android:id="@+id/profilecreate2_spinner_permit"
         android:background="@drawable/roundedrectangle"
         android:layout_width="match_parent"
         android:layout_height="23dp"
         android:entries="@array/permit_array"
         android:spinnerMode="dropdown"
-        android:layout_alignEnd="@+id/et_color"
-        android:layout_alignLeft="@+id/et_color"
-        android:layout_alignRight="@+id/et_color"
-        android:layout_alignStart="@+id/et_color"
-        android:layout_below="@+id/textView6"
+        android:layout_alignEnd="@+id/profilecreate2_et_color"
+        android:layout_alignLeft="@+id/profilecreate2_et_color"
+        android:layout_alignRight="@+id/profilecreate2_et_color"
+        android:layout_alignStart="@+id/profilecreate2_et_color"
+        android:layout_below="@+id/profilecreate2_tv_permit"
         android:textColor="#000000"
         android:layout_marginTop="15dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/profilecreate2_tv_permit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Permit Type"
         android:textColor="#ede698"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/et_color"
-        android:layout_alignLeft="@+id/et_color"
-        android:layout_alignStart="@+id/et_color" />
+        android:layout_below="@+id/profilecreate2_et_color"
+        android:layout_alignLeft="@+id/profilecreate2_et_color"
+        android:layout_alignStart="@+id/profilecreate2_et_color" />
 
 
 

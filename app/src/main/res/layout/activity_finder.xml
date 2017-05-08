@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:id="@+id/textView"
+            android:id="@+id/finder_tv_count"
             android:layout_below="@+id/view"
             android:layout_centerHorizontal="true" />
 
@@ -34,15 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/roundedrectangle"
-            android:id="@+id/spinner"
+            android:id="@+id/finder_spinner_location"
             android:textAlignment="center"
             android:entries="@array/location_array"
             android:spinnerMode="dropdown"
             android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView"
-            android:layout_alignRight="@+id/textView"
-            android:layout_alignEnd="@+id/textView" />
+            android:layout_alignLeft="@+id/finder_tv_count"
+            android:layout_alignStart="@+id/finder_tv_count"
+            android:layout_alignRight="@+id/finder_tv_count"
+            android:layout_alignEnd="@+id/finder_tv_count" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -54,12 +54,12 @@
             android:ems="10"
             android:background="@drawable/roundedrectangle"
             android:layout_marginTop="48dp"
-            android:id="@+id/editText8"
-            android:layout_below="@+id/spinner"
-            android:layout_alignLeft="@+id/spinner"
-            android:layout_alignStart="@+id/spinner"
-            android:layout_alignRight="@+id/spinner"
-            android:layout_alignEnd="@+id/spinner" />
+            android:id="@+id/finder_et_info"
+            android:layout_below="@+id/finder_spinner_location"
+            android:layout_alignLeft="@+id/finder_spinner_location"
+            android:layout_alignStart="@+id/finder_spinner_location"
+            android:layout_alignRight="@+id/finder_spinner_location"
+            android:layout_alignEnd="@+id/finder_spinner_location" />
 
         <Button
             android:text="Post Pick up"
@@ -68,8 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
-            android:id="@+id/button3"
-            android:layout_below="@+id/editText8"
+            android:id="@+id/finder_pickupbutton"
+            android:layout_below="@+id/finder_et_info"
             android:layout_alignRight="@+id/imageView"
             android:layout_alignEnd="@+id/imageView"
             android:layout_alignLeft="@+id/imageView"
@@ -98,7 +98,7 @@
             android:layout_above="@+id/view" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/finder_menubutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/sidebar"
@@ -123,7 +123,7 @@
             app:srcCompat="@drawable/personicon" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/finder_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
@@ -131,7 +131,7 @@
             android:textColor="#FFFFFF"/>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/finder_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

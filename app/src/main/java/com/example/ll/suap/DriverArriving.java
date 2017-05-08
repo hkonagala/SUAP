@@ -110,12 +110,12 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
             );
         }
 
-        menu = (Button)findViewById(R.id.button);
-        complete = (Button)findViewById(R.id.button3);
-        missed = (Button)findViewById(R.id.button2);
-        profile = (Button)findViewById(R.id.button5);
-        logout = (Button)findViewById(R.id.button6);
-        eta = (TextView) findViewById(R.id.textView11);
+        menu = (Button)findViewById(R.id.driver_arriving_menubutton);
+        complete = (Button)findViewById(R.id.driver_arriving_completebutton);
+        missed = (Button)findViewById(R.id.driver_arriving_missedbutton);
+        profile = (Button)findViewById(R.id.driver_arriving_profilebutton);
+        logout = (Button)findViewById(R.id.driver_arriving_logoutbutton);
+        eta = (TextView) findViewById(R.id.driver_arriving_tv_eta);
 
         menu.setOnClickListener(this);
         complete.setOnClickListener(this);
@@ -163,27 +163,27 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.button:
+            case R.id.driver_arriving_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case(R.id.button3):
+            case(R.id.driver_arriving_completebutton):
                 //add successful ride to driver's page
                 //mydbactiveusers.child(activeUser.getUserId()).child("status").setValue(completed);
                 finish();
                 startActivity(new Intent(this, MainMenu.class));
                 //after going to main menu the driver should be available again
                 break;
-            case(R.id.button2):
+            case(R.id.driver_arriving_missedbutton):
                 //add missed Ride to driver's page
                 //mydbactiveusers.child(activeUser.getUserId()).child("status").setValue(missed);
                 finish();
                 startActivity(new Intent(this, MainMenu.class));
                 //after going to main menu the driver should be available again
                 break;
-            case R.id.button5:
+            case R.id.driver_arriving_profilebutton:
                 startActivity(new Intent(DriverArriving.this,Profile.class));
                 break;
-            case R.id.button6:
+            case R.id.driver_arriving_logoutbutton:
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(DriverArriving.this,BeginningActivity.class));

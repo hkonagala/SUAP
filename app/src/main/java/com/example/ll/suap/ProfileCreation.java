@@ -36,9 +36,9 @@ public class ProfileCreation extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_creation);
-        email = (EditText)findViewById(R.id.et_name);
-        password = (EditText)findViewById(R.id.et_phone);
-        register = (Button)findViewById(R.id.buttonRegister);
+        email = (EditText)findViewById(R.id.profilecreate_et_email);
+        password = (EditText)findViewById(R.id.profilecreate_et_pwdl);
+        register = (Button)findViewById(R.id.profilecreate_buttonRegister);
 
     }
 

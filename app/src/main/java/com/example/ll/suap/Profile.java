@@ -46,9 +46,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        userName = (TextView) findViewById(R.id.textView);
-        userInfo = (TextView) findViewById(R.id.textView2);
-        menu = (Button) findViewById(R.id.buttonRegister);
+        userName = (TextView) findViewById(R.id.profile_personname_tv);
+        userInfo = (TextView) findViewById(R.id.profile_personinfo_tv);
+        menu = (Button) findViewById(R.id.profile_menubutton);
 
         //TODO drawer layout
         //  mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -65,7 +65,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.buttonRegister:
+            case R.id.profile_menubutton:
                 //   mDrawerLayout.openDrawer(Gravity.START);
                 break;
         }

@@ -55,13 +55,13 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
         final Intent myIntent = getIntent();
         emailText = myIntent.getStringExtra("registeremail");
         passwordText = myIntent.getStringExtra("registerpassword");
-        name = (EditText)findViewById(R.id.et_name);
-        phone = (EditText)findViewById(R.id.et_phone);
-        carmakemodel = (EditText)findViewById(R.id.et_model);
-        caryear = (EditText)findViewById(R.id.et_year);
-        carcolor = (EditText)findViewById(R.id.et_color);
-        permitType = (Spinner)findViewById(R.id.spinner_permit);
-        finish = (Button)findViewById(R.id.buttonRegister);
+        name = (EditText)findViewById(R.id.profilecreate2_et_name);
+        phone = (EditText)findViewById(R.id.profilecreate2_et_phone);
+        carmakemodel = (EditText)findViewById(R.id.profilecreate2_et_model);
+        caryear = (EditText)findViewById(R.id.profilecreate2_et_year);
+        carcolor = (EditText)findViewById(R.id.profilecreate2_et_color);
+        permitType = (Spinner)findViewById(R.id.profilecreate2_spinner_permit);
+        finish = (Button)findViewById(R.id.profilecreate2_buttonRegister);
 
         finish.setOnClickListener(this);
 

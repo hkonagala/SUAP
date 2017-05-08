@@ -34,8 +34,8 @@
         android:layout_below="@+id/toolbar"
         android:layout_marginBottom="50dp"
         android:background="#95989A"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_alignLeft="@+id/foundmatch_menubutton"
+        android:layout_alignStart="@+id/foundmatch_menubutton" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -49,7 +49,7 @@
         android:layout_alignTop="@+id/toolbar" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/foundmatch_menubutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/toolbar"
@@ -89,7 +89,7 @@
         android:layout_alignEnd="@+id/view">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/foundmatch_passengerimgage"
             android:layout_width="123dp"
             android:layout_height="124dp"
             android:layout_marginLeft="23dp"
@@ -104,7 +104,7 @@
             app:srcCompat="@drawable/matchicon" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/foundmatch_driverbutton"
             android:layout_width="125dp"
             android:layout_height="122dp"
             android:background="@drawable/personicon" />
@@ -115,39 +115,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
-        android:id="@+id/button4"
+        android:id="@+id/foundmatch_confirmbutton"
         android:background="@drawable/roundedgreenrectangle"
         android:text="CONFIRM PICK UP"
         android:textColor="#FFFFFF"
         android:layout_below="@+id/linear1"
         android:layout_toLeftOf="@+id/button3"
         android:layout_toStartOf="@+id/button3"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:layout_toRightOf="@+id/foundmatch_menubutton"
+        android:layout_toEndOf="@+id/foundmatch_menubutton" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/foundmatch_callbutton"
         android:text="CALL DRIVER"
         android:textColor="#FFFFFF"
         android:background="@drawable/roundedgreenrectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:layout_below="@+id/button4"
+        android:layout_below="@+id/foundmatch_confirmbutton"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/foundmatch_cancelbutton"
         android:text="CANCEL"
         android:textColor="#FFFFFF"
         android:background="@drawable/roundedgreenrectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/button5"
+        android:layout_below="@+id/foundmatch_callbutton"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
@@ -166,7 +166,7 @@
             app:srcCompat="@drawable/personicon" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/foundmatch_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
@@ -174,7 +174,7 @@
             android:textColor="#FFFFFF"/>
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/foundmatch_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

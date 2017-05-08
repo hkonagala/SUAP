@@ -25,11 +25,11 @@
         android:background="#95989A"
         android:layout_alignRight="@+id/button2"
         android:layout_alignEnd="@+id/button2"
-        android:layout_alignLeft="@+id/buttonRegister"
-        android:layout_alignStart="@+id/buttonRegister" />
+        android:layout_alignLeft="@+id/profile_menubutton"
+        android:layout_alignStart="@+id/profile_menubutton" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profile_suapimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/icon3"
@@ -38,13 +38,13 @@
         android:layout_above="@+id/view" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/profile_menubutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/sidebar"
         android:layout_above="@+id/view"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView"
+        android:layout_toLeftOf="@+id/profile_suapimage"
+        android:layout_toStartOf="@+id/profile_suapimage"
         android:layout_alignTop="@+id/toolbar" />
 
     <Button
@@ -53,12 +53,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bellalert"
         android:layout_above="@+id/view"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/profile_suapimage"
+        android:layout_toRightOf="@+id/profile_suapimage"
         android:layout_alignTop="@+id/toolbar" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profile_personimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/personicon"
@@ -67,20 +67,20 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profile_personname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/profile_personimage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
         android:text="Name Here"
         android:textColor="#ede698" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/profile_personinfo_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/profile_personname_tv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:text="Other Info Here"

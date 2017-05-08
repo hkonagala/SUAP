@@ -52,7 +52,7 @@ public class BeginningActivity extends AppCompatActivity implements View.OnClick
         loginButton = (Button) findViewById(R.id.loginButton);
         createProfile = (Button) findViewById(R.id.profileButton);
         email = (EditText) findViewById(R.id.et_name);
-        password = (EditText) findViewById(R.id.et_phone);
+        password = (EditText) findViewById(R.id.et_pwd);
 
 
 

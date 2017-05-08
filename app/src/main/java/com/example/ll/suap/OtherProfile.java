@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ public class OtherProfile extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     TextView success_rides, miss_rides, driverName, driverInfo;
     Button menu, call;
+    ImageView profilepic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +52,13 @@ public class OtherProfile extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        menu = (Button) findViewById(R.id.buttonRegister);
-        call = (Button) findViewById(R.id.buttoncall);
-        success_rides = (TextView) findViewById(R.id.textView3);
-        miss_rides = (TextView) findViewById(R.id.textView4);
-        driverName = (TextView) findViewById(R.id.textView5);
-        driverInfo = (TextView) findViewById(R.id.textView15);
+        menu = (Button) findViewById(R.id.otherprofile_menubutton);
+        call = (Button) findViewById(R.id.otherprofile_callbutton);
+        success_rides = (TextView) findViewById(R.id.otherprofile_rides_tv);
+        miss_rides = (TextView) findViewById(R.id.otherprofile_missedrides_tv);
+        driverName = (TextView) findViewById(R.id.otherprofile_drivername_tv);
+        driverInfo = (TextView) findViewById(R.id.otherprofile_info_tv);
+        profilepic = (ImageView) findViewById(R.id.otherprofile_profileimage);
 
         //TODO imageview for profile picture do something
 
@@ -78,10 +81,10 @@ public class OtherProfile extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         //TODO set intents
         switch(v.getId()){
-            case R.id.buttonRegister:
+            case R.id.otherprofile_menubutton:
              //   mDrawerLayout.openDrawer(Gravity.START);
                 break;
-            case R.id.buttoncall:
+            case R.id.otherprofile_callbutton:
                 //TODO implement this call with intents
                 //get phone number in database and replace phone number below with driver #
                // Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(driverPhone));

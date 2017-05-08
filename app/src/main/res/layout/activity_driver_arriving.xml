@@ -20,8 +20,6 @@
             android:background="#333937"
             android:minHeight="?attr/actionBarSize"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/mapView"
-            android:layout_toEndOf="@+id/mapView"
             android:layout_marginTop="21dp" />
 
         <View  android:layout_width="match_parent"
@@ -40,7 +38,7 @@
             android:layout_alignTop="@+id/toolbar" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/driver_arriving_menubutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/sidebar"
@@ -61,7 +59,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/driver_arriving_completebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pick up complete"
@@ -82,11 +80,11 @@
             android:text="Hit missed if ride never came"
             android:textSize="16sp"
             android:textColor="#ede698"
-            android:layout_below="@+id/button3"
+            android:layout_below="@+id/driver_arriving_completebutton"
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/driver_arriving_missedbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView10"
@@ -115,7 +113,7 @@
             android:layout_marginTop="185dp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/driver_arriving_tv_eta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
@@ -151,7 +149,7 @@
             app:srcCompat="@drawable/personicon" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/driver_arriving_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
@@ -159,7 +157,7 @@
             android:textColor="#FFFFFF"/>
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/driver_arriving_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
