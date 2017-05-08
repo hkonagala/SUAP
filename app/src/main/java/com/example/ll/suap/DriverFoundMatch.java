@@ -11,9 +11,12 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DriverFoundMatch extends AppCompatActivity implements View.OnClickListener{
 
@@ -21,6 +24,13 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     private DrawerLayout mDrawerLayout;
     Button passenger, confirm, call, cancel, menu, profile, logout;
     private UserInformation userInformation;
+    ActiveUser activeUser;
+    private DatabaseReference mydb;
+    private DatabaseReference mydbactiveusers;
+    String pickupLocation, additionalInfo, riderName, riderPhone;
+    int riderId;
+    private ActiveUser riderUser;
+    TextView driverName, location_here;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,14 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+        Intent myIntent = getIntent();
+        pickupLocation = myIntent.getStringExtra("pickup_location");
+        additionalInfo = myIntent.getStringExtra("additional_info");
+        riderName = myIntent.getStringExtra("rider_user_name");
+        riderPhone = myIntent.getStringExtra("rider_user_phone");
+        riderId = myIntent.getIntExtra("rider_user_id", 0);
+
+        mydb = FirebaseDatabase.getInstance().getReference();
         //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (user != null) {
@@ -56,6 +74,9 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         call = (Button)findViewById(R.id.button6);
         cancel = (Button)findViewById(R.id.button7);
         passenger = (Button)findViewById(R.id.button8);
+        driverName = (TextView) findViewById(R.id.textView9);
+        location_here = (TextView) findViewById(R.id.textView13);
+
 
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -68,6 +89,12 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        call.setText("CALL "+riderName);
     }
 
     public void onClick(View v) {
@@ -84,11 +111,12 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(this,BeginningActivity.class));
                 break;
             case R.id.button5:
+                //TODO some link missing
                 startActivity(new Intent(this, MainMenu.class));
                 break;
             case R.id.button6:
                 //get phone number in database and replace phone number below with passenger #
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "4109003684"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(riderPhone));
                 startActivity(intent);
                 break;
             case R.id.button7:

@@ -2,17 +2,25 @@ package com.example.ll.suap;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class OtherProfile extends AppCompatActivity {
+public class OtherProfile extends AppCompatActivity implements View.OnClickListener{
 
     private UserInformation userInformation;
     private FirebaseAuth mAuth;
+    TextView success_rides, miss_rides, driverName, driverInfo;
+    Button menu, call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +49,46 @@ public class OtherProfile extends AppCompatActivity {
         }else {
             startActivity(new Intent(this, BeginningActivity.class));
         }
+
+        menu = (Button) findViewById(R.id.buttonRegister);
+        call = (Button) findViewById(R.id.buttoncall);
+        success_rides = (TextView) findViewById(R.id.textView3);
+        miss_rides = (TextView) findViewById(R.id.textView4);
+        driverName = (TextView) findViewById(R.id.textView5);
+        driverInfo = (TextView) findViewById(R.id.textView15);
+
+        //TODO imageview for profile picture do something
+
+
+
+        //TODO drawer layout
+      //  mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+       // mDrawerLayout.closeDrawer(Gravity.START);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        menu.setOnClickListener(this);
+        call.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        //TODO set intents
+        switch(v.getId()){
+            case R.id.buttonRegister:
+             //   mDrawerLayout.openDrawer(Gravity.START);
+                break;
+            case R.id.buttoncall:
+                //TODO implement this call with intents
+                //get phone number in database and replace phone number below with driver #
+               // Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(driverPhone));
+                //startActivity(intent);
+                break;
+
+        }
+
     }
 }

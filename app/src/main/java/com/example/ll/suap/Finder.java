@@ -46,7 +46,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
     private FirebaseAuth mAuth;
     private DrawerLayout mDrawerLayout;
     Button finder, menu, profile, logout;
-    TextView count, eta;
+    TextView count;
     private UserInformation userInformation;
     ActiveUser activeUser;
     private DatabaseReference mydb;
@@ -67,7 +67,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
         mydb = FirebaseDatabase.getInstance().getReference();
-        pickupLocation = (Spinner) findViewById(R.id.spinner_permit);
+        pickupLocation = (Spinner) findViewById(R.id.spinner);
         pickupLocation.setOnItemSelectedListener(this);
         additionalInfo = (EditText) findViewById(R.id.editText8);
 
@@ -93,9 +93,9 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         }
 
         count = (TextView) findViewById(R.id.textView);
-        eta = (TextView) findViewById(R.id.textView3);
-        finder = (Button) findViewById(R.id.buttonRegister);
-        menu = (Button) findViewById(R.id.button2);
+       // eta = (TextView) findViewById(R.id.textView3);
+        finder = (Button) findViewById(R.id.button3);
+        menu = (Button) findViewById(R.id.button);
         profile = (Button) findViewById(R.id.button4);
         logout = (Button) findViewById(R.id.button5);
 
@@ -108,6 +108,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         mDrawerLayout.closeDrawer(GravityCompat.START);
 
 
+        mydbactiveusers = mydb.child("active_users");
 
 
     }
@@ -139,13 +140,13 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         });
         int estimatedTimeMin = 1;
         int estimatedTimeSec = 30;
-        eta.setText(estimatedTimeMin + " : " + estimatedTimeSec + " min");
+        //eta.setText(estimatedTimeMin + " : " + estimatedTimeSec + " min");
     }
 
     public void onClick(View v)
     {
         switch(v.getId()) {
-            case R.id.buttonRegister:
+            case R.id.button3:
                 getActiveRiderInfo();
                 break;
             case R.id.button2:
@@ -165,7 +166,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         // mAuth = FirebaseAuth.getInstance();
         FirebaseUser myactiveuser = mAuth.getCurrentUser();
         //mydb = FirebaseDatabase.getInstance().getReference();
-        mydbactiveusers = mydb.child("active_users");
+
         final SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if(myactiveuser!=null){
             activeUser = new ActiveUser(myactiveuser.getUid(),
@@ -302,6 +303,4 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                     .equalTo("myType", String.valueOf(Driver));*/
         }
     }
-
-    class ETATask implements AsyncTask<LatLng, Integer, >
 }

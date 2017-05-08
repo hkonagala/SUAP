@@ -79,6 +79,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         profile = (Button)findViewById(R.id.button7);
         logout = (Button)findViewById(R.id.button8);
 
+        //TODO display passenger name/picture in imageview2
         driver.setOnClickListener(this);
         confirm.setOnClickListener(this);
         call.setOnClickListener(this);
@@ -110,7 +111,13 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
             case R.id.button4:
                 getDriverInfo();
                 finish();
-                startActivity(new Intent(this, DriverArriving.class));
+                Intent myIntent = new Intent(FoundMatch.this, DriverArriving.class);
+                myIntent.putExtra("driver_user_id", driverId);
+                myIntent.putExtra("driver_user_name", driverName);
+                myIntent.putExtra("driver_user_phone", driverPhone);
+                myIntent.putExtra("pickup_location", pickupLocation);
+                myIntent.putExtra("additional_info", additionalInfo);
+                startActivity(myIntent);
                 break;
             case R.id.button5:
                 //get phone number in database and replace phone number below with driver #

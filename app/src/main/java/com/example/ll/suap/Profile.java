@@ -5,15 +5,19 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements View.OnClickListener {
 
     private UserInformation userInformation;
     private FirebaseAuth mAuth;
-
+    TextView userName, userInfo;
+    Button menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,30 @@ public class Profile extends AppCompatActivity {
             );
         }else {
             startActivity(new Intent(this, BeginningActivity.class));
+        }
+
+        userName = (TextView) findViewById(R.id.textView);
+        userInfo = (TextView) findViewById(R.id.textView2);
+        menu = (Button) findViewById(R.id.buttonRegister);
+
+        //TODO drawer layout
+        //  mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // mDrawerLayout.closeDrawer(Gravity.START);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        menu.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.buttonRegister:
+                //   mDrawerLayout.openDrawer(Gravity.START);
+                break;
         }
     }
 }

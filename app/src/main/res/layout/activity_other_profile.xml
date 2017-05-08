@@ -47,11 +47,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/sidebar"
         android:layout_alignTop="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_above="@+id/view" />
+        android:layout_toLeftOf="@+id/imageView3"
+        android:layout_toStartOf="@+id/imageView3"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
 
     <Button
         android:id="@+id/button2"
@@ -159,15 +158,15 @@
         android:text="INFO HERE" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttoncall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView15"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:background="@drawable/roundedbluerectangle"
+        android:text="CALL"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:text="CALL" />
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

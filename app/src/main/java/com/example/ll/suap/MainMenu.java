@@ -14,6 +14,13 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.ll.suap.ActiveUser.ActiveState.online;
+import static com.example.ll.suap.ActiveUser.UserType.Driver;
+import static com.example.ll.suap.ActiveUser.UserType.Rider;
+import static com.example.ll.suap.ActiveUser.status.available;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
@@ -23,6 +30,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     ImageView toggle;
     boolean pass = true;
     UserInformation userInformation;
+    private DatabaseReference mydb;
+    private DatabaseReference mydbactiveusers;
+    private DatabaseReference mydbchildusers;
+    ActiveUser activeUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +42,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+        mydb = FirebaseDatabase.getInstance().getReference();
         //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (user != null) {
@@ -54,8 +66,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
         toggle = (ImageView)findViewById(R.id.imageView2);
         passenger = (Button) findViewById(R.id.button1);
-        driver = (Button)findViewById(R.id.button3);
-        finder = (Button)findViewById(R.id.button2);
+        driver = (Button)findViewById(R.id.button2);
+        finder = (Button)findViewById(R.id.button3);
         map = (Button)findViewById(R.id.button4);
         menu = (Button)findViewById(R.id.button5);
         profile = (Button)findViewById(R.id.button7);
@@ -85,7 +97,8 @@ public void onClick(View v){
             profile.setBackgroundResource(R.drawable.roundedgreenrectangle);
             logout.setBackgroundResource(R.drawable.roundedgreenrectangle);
             break;
-        case R.id.button3:
+        case R.id.button2:
+            getDriverInfo();
             pass = false;
             toggle.setImageResource(R.drawable.driver);
             finder.setBackgroundResource(R.drawable.roundedbluerectangle);
@@ -94,7 +107,7 @@ public void onClick(View v){
             profile.setBackgroundResource(R.drawable.roundedbluerectangle);
             logout.setBackgroundResource(R.drawable.roundedbluerectangle);
             break;
-        case R.id.button2:
+        case R.id.button3:
             if(pass)
                 startActivity(new Intent(MainMenu.this, Finder.class));
             else
@@ -116,4 +129,26 @@ public void onClick(View v){
             break;
     }
 }
+
+    private void getDriverInfo() {
+        FirebaseUser myactiveuser = mAuth.getCurrentUser();
+        mydbactiveusers = mydb.child("active_users");
+        final SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if(myactiveuser!=null){
+            activeUser = new ActiveUser(myactiveuser.getUid(),
+                    userDetails.getString("myactiveuser.name", ""),
+                    userDetails.getString("myactiveuser.phone", ""),
+                    userDetails.getString("myactiveuser.makeModel", ""),
+                    userDetails.getString("myactiveuser.year", ""),
+                    userDetails.getString("myactiveuser.color", ""),
+                    userDetails.getString("myactiveuser.permit", ""),
+                    userDetails.getFloat("myactiveuser.latitude", 0),
+                    userDetails.getFloat("myactiveuser.longitude", 0),
+                    Driver,
+                    userDetails.getLong("myactiveuser.timestamp", 0),
+                    online,
+                    available
+            );
+        }
+    }
 }
