@@ -23,36 +23,36 @@ public class ActiveUser {
     }
     public enum ActiveState {
         online,
-        offline;
-
+        offline
     }
 
     public enum status{
         hold,//driver in queue
         taken,//driver confirm
-        available,
-
+        available
     }
 
     //all from UserInformation
     public String userId;
     public String name;
-    public static String phone;
+    public String phone;
     public String makeModel;
     public String year;
     public String color;
     public String permit;
     public double latitude;
     public double longitude;
+    public String rideId;
 
     //specific to active user
-    UserType myType;
-    Long timestamp;
-    ActiveState myState;
-    static status status;
+    public UserType myType;
+    public Long timestamp;
+    public ActiveState myState;
+    public status status;
 
-
-    public ActiveUser(String userId, String name, String phone, String makeModel, String year, String color, String permit, double latitude, double longitude, UserType myType, Long timestamp, ActiveState myState, status status) {
+    public ActiveUser(String userId, String name, String phone, String makeModel, String year, String color, String permit,
+                      double latitude, double longitude, String rideId, UserType myType, Long timestamp,
+                      ActiveState myState, ActiveUser.status status) {
         this.userId = userId;
         this.name = name;
         this.phone = phone;
@@ -62,6 +62,7 @@ public class ActiveUser {
         this.permit = permit;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.rideId = rideId;
         this.myType = myType;
         this.timestamp = timestamp;
         this.myState = myState;
@@ -162,6 +163,22 @@ public class ActiveUser {
 
     public void setMyState(ActiveState myState) {
         this.myState = myState;
+    }
+
+    public ActiveUser.status getStatus() {
+        return status;
+    }
+
+    public void setStatus(ActiveUser.status status) {
+        this.status = status;
+    }
+
+    public String getRideId() {
+        return rideId;
+    }
+
+    public void setRideId(String rideId) {
+        this.rideId = rideId;
     }
 
     public ActiveUser() {

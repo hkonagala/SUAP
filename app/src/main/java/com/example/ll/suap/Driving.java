@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
@@ -33,8 +34,9 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
     Button cancel,menu,profile,logout;
     private UserInformation userInformation;
     private ActiveUser activeUser;
-    private DatabaseReference mydb;
     private DatabaseReference mydbactiveusers;
+    private DatabaseReference mydbrides;
+    private DatabaseReference mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,29 +77,51 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);
+        mydb = FirebaseDatabase.getInstance().getReference();
+        mydbactiveusers = mydb.child("active_users");
+        mydbrides = mydb.child("rides");
 
-        Query search = mydbactiveusers.equalTo("myType", String.valueOf(Rider))
-                .equalTo("myState", String.valueOf(ActiveUser.ActiveState.online))
-                .equalTo("status", String.valueOf(available));
-        search.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+        mydbactiveusers.child(userInformation.userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot !=null){
-                    //get list of riders and update their status to
-                    ActiveUser rider = dataSnapshot.getValue(ActiveUser.class);
-                    mydbactiveusers.child(rider.getUserId()).child("status").setValue(taken);
-                    //go to next page and update the status to taken
-                    Intent myIntent = new Intent(Driving.this, DriverFoundMatch.class);
-                    myIntent.putExtra("rider_user_id", rider.getUserId());
-                    myIntent.putExtra("rider_user_name", rider.getName());
-                    myIntent.putExtra("rider_phone_number", rider.getPhone());
-                    finish();
-                    startActivity(myIntent);
-                }else {
-                    //else toast error message
-                    Toast.makeText(Driving.this,"Please wait while we find you a rider",Toast.LENGTH_LONG).show();
-                }
+                    ActiveUser driver = dataSnapshot.getValue(ActiveUser.class);
+                    if (driver.getStatus().equals(taken) && !driver.getRideId().equals(0)) {
+                        final String rideId = driver.getRideId();
+                        mydbrides.child(rideId).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Ride ride = dataSnapshot.getValue(Ride.class);
+                                String riderId = ride.passengerId;
+                                mydbactiveusers.child(riderId).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        ActiveUser rider = dataSnapshot.getValue(ActiveUser.class);
+                                        Intent myIntent = new Intent(Driving.this, DriverFoundMatch.class);
+                                        myIntent.putExtra("rider_user_id", rider.getUserId());
+                                        myIntent.putExtra("rider_user_name", rider.getName());
+                                        myIntent.putExtra("rider_phone_number", rider.getPhone());
+                                        myIntent.putExtra("ride_id", rideId);
+                                        finish();
+                                        startActivity(myIntent);
+                                    }
 
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                }
             }
 
             @Override

@@ -1,9 +1,12 @@
 package com.example.ll.suap;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -20,9 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Random;
 
 import static com.example.ll.suap.ActiveUser.status.available;
+import static com.example.ll.suap.ActiveUser.status.taken;
 import static com.example.ll.suap.R.id.foundmatch_cancelbutton;
 
-public class FoundMatch extends AppCompatActivity implements View.OnClickListener{
+public class FoundMatch extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private DrawerLayout mDrawerLayout;
@@ -30,11 +34,12 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     UserInformation userInformation;
     ActiveUser activeUser;
     private DatabaseReference mydb;
-    private DatabaseReference mydbactiveusers;
+    private DatabaseReference mydbactiveusers, mydbrides;
     String pickupLocation, additionalInfo, driverName, driverPhone;
-    int driverId;
+    String driverId;
     private ActiveUser driverUser;
     ImageView passengerImage;
+    private String rideId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +54,11 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         additionalInfo = myIntent.getStringExtra("additional_info");
         driverName = myIntent.getStringExtra("driver_user_name");
         driverPhone = myIntent.getStringExtra("driver_user_phone");
-        driverId = myIntent.getIntExtra("driver_user_id", 0);
+        driverId = myIntent.getStringExtra("driver_user_id");
 
         mydb = FirebaseDatabase.getInstance().getReference();
+        mydbactiveusers = mydb.child("active_users");
+        mydbrides = mydb.child("rides");
         //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (user != null) {
@@ -69,19 +76,19 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                     userDetails.getFloat("user.latitude", 0),
                     userDetails.getFloat("user.longitude", 0)
             );
-        }else {
+        } else {
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        driver = (Button)findViewById(R.id.foundmatch_driverbutton);
-        menu = (Button)findViewById(R.id.foundmatch_menubutton);
-        confirm = (Button)findViewById(R.id.foundmatch_confirmbutton);
-        call = (Button)findViewById(R.id.foundmatch_callbutton);
-        cancel = (Button)findViewById(foundmatch_cancelbutton);
-        profile = (Button)findViewById(R.id.foundmatch_profilebutton);
-        logout = (Button)findViewById(R.id.foundmatch_logoutbutton);
-        passengerImage = (ImageView) findViewById(R.id.foundmatch_passengerimgage); 
-        
+        driver = (Button) findViewById(R.id.foundmatch_driverbutton);
+        menu = (Button) findViewById(R.id.foundmatch_menubutton);
+        confirm = (Button) findViewById(R.id.foundmatch_confirmbutton);
+        call = (Button) findViewById(R.id.foundmatch_callbutton);
+        cancel = (Button) findViewById(foundmatch_cancelbutton);
+        profile = (Button) findViewById(R.id.foundmatch_profilebutton);
+        logout = (Button) findViewById(R.id.foundmatch_logoutbutton);
+        passengerImage = (ImageView) findViewById(R.id.foundmatch_passengerimgage);
+
 
         //TODO display passenger name/picture in imageview2
         driver.setOnClickListener(this);
@@ -101,11 +108,11 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onResume() {
         super.onResume();
-        call.setText("CALL "+driverName);
+        call.setText("CALL " + driverName);
     }
 
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.foundmatch_driverbutton:
                 startActivity(new Intent(this, DriverProfile.class));
                 break;
@@ -121,15 +128,22 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 myIntent.putExtra("driver_user_phone", driverPhone);
                 myIntent.putExtra("pickup_location", pickupLocation);
                 myIntent.putExtra("additional_info", additionalInfo);
+                myIntent.putExtra("ride_id", rideId);
+                mydbactiveusers.child(driverId).child("status").setValue(taken);
                 startActivity(myIntent);
                 break;
             case R.id.foundmatch_callbutton:
                 //get phone number in database and replace phone number below with driver #
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(driverPhone));
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:"+ driverPhone));
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(FoundMatch.this, new String[]{Manifest.permission.CALL_PHONE}, 125);
+                    return;
+                }
                 startActivity(intent);
                 break;
             case foundmatch_cancelbutton:
-                mydbactiveusers.child(String.valueOf(driverId)).child("status").setValue(available);
+                mydbactiveusers.child(driverId).child("status").setValue(available);
                 finish();
                 startActivity(new Intent(this, MainMenu.class));
                 break;
@@ -144,10 +158,11 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     }
 
     private void getDriverInfo() {
-        mydbactiveusers = mydb.child("Ride");
-        String randString = getSaltString();
-        Ride ride = new Ride(activeUser.getUserId(), String.valueOf(driverId), randString, Ride.ride_status.ongoing);
-        mydbactiveusers.child(randString).setValue(ride);
+
+        rideId = getSaltString();
+        Ride ride = new Ride(userInformation.userId, String.valueOf(driverId), rideId, Ride.ride_status.ongoing);
+        mydbrides.child(rideId).setValue(ride);
+        mydbactiveusers.child(driverId).child("rideId").setValue(rideId);
     }
 
     protected String getSaltString() {
