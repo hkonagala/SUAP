@@ -26,7 +26,7 @@
     <Button
         android:text="CREATE AN ACCOUNT"
         android:textColor="#ede698"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/profileButton"
         android:background="#333937"
@@ -36,7 +36,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/icon2"
         android:layout_marginTop="40dp"
@@ -46,7 +46,7 @@
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView3"
         android:layout_marginTop="30dp"
@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/et_pwd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"

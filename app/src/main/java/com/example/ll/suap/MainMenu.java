@@ -44,7 +44,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         FirebaseUser user = mAuth.getCurrentUser();
         mydb = FirebaseDatabase.getInstance().getReference();
         mydbactiveusers = mydb.child("active_users");
-        //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (user != null) {
             userInformation = new UserInformation(user.getUid(),
@@ -60,7 +59,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
                     userDetails.getString("user.match", ""),
                     userDetails.getFloat("user.latitude", 0),
                     userDetails.getFloat("user.longitude", 0)
-                    );
+            );
         }else {
             startActivity(new Intent(this, BeginningActivity.class));
         }
@@ -87,53 +86,54 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
     }
 
-public void onClick(View v){
-    switch(v.getId()){
-        case R.id.main_passengerbutton:
-            pass = true;
-            toggle.setImageResource(R.drawable.passenger);
-            finder.setBackgroundResource(R.drawable.roundedgreenrectangle);
-            finder.setText("Find Ride");
-            map.setBackgroundResource(R.drawable.roundedgreenrectangle);
-            profile.setBackgroundResource(R.drawable.roundedgreenrectangle);
-            logout.setBackgroundResource(R.drawable.roundedgreenrectangle);
-            break;
-        case R.id.main_driverbutton:
-            pass = false;
-            toggle.setImageResource(R.drawable.driver);
-            finder.setBackgroundResource(R.drawable.roundedbluerectangle);
-            finder.setText("Find Passenger");
-            map.setBackgroundResource(R.drawable.roundedbluerectangle);
-            profile.setBackgroundResource(R.drawable.roundedbluerectangle);
-            logout.setBackgroundResource(R.drawable.roundedbluerectangle);
-            getDriverInfo();
-            break;
-        case R.id.main_finderbutton:
-            if(pass)
-                startActivity(new Intent(MainMenu.this, Finder.class));
-            else
-                startActivity(new Intent(MainMenu.this,Driving.class));
-            break;
-        case R.id.main_mapbutton:
-            startActivity(new Intent(MainMenu.this, CampusMap.class));
-            break;
-        case R.id.main_menubutton:
-            mDrawerLayout.openDrawer(Gravity.START);
-            break;
-        case R.id.main_profilebutton:
-            startActivity(new Intent(MainMenu.this,Profile.class));
-            break;
-        case R.id.main_logoutbutton:
-            mAuth.signOut();
-            finish();
-            startActivity(new Intent(MainMenu.this,BeginningActivity.class));
-            break;
+    public void onClick(View v){
+        switch(v.getId()){
+            case R.id.main_passengerbutton:
+                pass = true;
+                toggle.setImageResource(R.drawable.passenger);
+                finder.setBackgroundResource(R.drawable.roundedgreenrectangle);
+                finder.setText("Find Ride");
+                map.setBackgroundResource(R.drawable.roundedgreenrectangle);
+                profile.setBackgroundResource(R.drawable.roundedgreenrectangle);
+                logout.setBackgroundResource(R.drawable.roundedgreenrectangle);
+                break;
+            case R.id.main_driverbutton:
+                pass = false;
+                toggle.setImageResource(R.drawable.driver);
+                finder.setBackgroundResource(R.drawable.roundedbluerectangle);
+                finder.setText("Find Passenger");
+                map.setBackgroundResource(R.drawable.roundedbluerectangle);
+                profile.setBackgroundResource(R.drawable.roundedbluerectangle);
+                logout.setBackgroundResource(R.drawable.roundedbluerectangle);
+                break;
+            case R.id.main_finderbutton:
+                if(pass)
+                    startActivity(new Intent(MainMenu.this, Finder.class));
+                else
+                    getDriverInfo();
+                break;
+            case R.id.main_mapbutton:
+                startActivity(new Intent(MainMenu.this, CampusMap.class));
+                break;
+            case R.id.main_menubutton:
+                mDrawerLayout.openDrawer(Gravity.START);
+                break;
+            case R.id.main_profilebutton:
+                startActivity(new Intent(MainMenu.this,Profile.class));
+                break;
+            case R.id.main_logoutbutton:
+                mAuth.signOut();
+                finish();
+                startActivity(new Intent(MainMenu.this,BeginningActivity.class));
+                break;
+        }
     }
-}
 
     private void getDriverInfo() {
+        //load driver details into active user on button click
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){
+            Long timestamp = System.currentTimeMillis();
             activeUser = new ActiveUser(user.getUid(),
                     userInformation.name,
                     userInformation.phone,
@@ -143,12 +143,17 @@ public void onClick(View v){
                     userInformation.permit,
                     userInformation.latitude,
                     userInformation.longitude,
+                    "0",
                     Driver,
-                    userInformation.timestamp,
+                    timestamp,
                     online,
                     available
             );
+            mydbactiveusers.child(user.getUid()).setValue(activeUser);
         }
+
+        finish();
+        startActivity(new Intent(MainMenu.this,Driving.class));
     }
 
 }

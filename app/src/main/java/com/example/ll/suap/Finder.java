@@ -7,14 +7,14 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -23,7 +23,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +37,6 @@ import static com.example.ll.suap.ActiveUser.UserType.Driver;
 import static com.example.ll.suap.ActiveUser.UserType.Rider;
 import static com.example.ll.suap.ActiveUser.status.available;
 import static com.example.ll.suap.ActiveUser.status.hold;
-import static com.example.ll.suap.ActiveUser.status.taken;
 
 public class Finder extends AppCompatActivity implements View.OnClickListener, LocationListener, AdapterView.OnItemSelectedListener {
 
@@ -65,7 +63,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         setContentView(R.layout.activity_finder);
 
         mAuth = FirebaseAuth.getInstance();
-        final FirebaseUser user = mAuth.getCurrentUser();
+        FirebaseUser user = mAuth.getCurrentUser();
         mydb = FirebaseDatabase.getInstance().getReference();
         pickupLocation = (Spinner) findViewById(R.id.finder_spinner_location);
         pickupLocation.setOnItemSelectedListener(this);
@@ -93,7 +91,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         }
 
         count = (TextView) findViewById(R.id.finder_tv_count);
-       // eta = (TextView) findViewById(R.id.textView3);
+        // eta = (TextView) findViewById(R.id.textView3);
         finder = (Button) findViewById(R.id.finder_pickupbutton);
         menu = (Button) findViewById(R.id.finder_menubutton);
         profile = (Button) findViewById(R.id.finder_profilebutton);
@@ -124,13 +122,24 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
-        final Query countQuery = mydbactiveusers.equalTo("myType", String.valueOf(Driver))
-                .equalTo("myState", String.valueOf(online)).equalTo("permit",userInformation.permit);
+        final Query countQuery = mydbactiveusers
+                .orderByChild("myState").equalTo("myState", String.valueOf(online));
+                /*.orderByChild("myType").equalTo("myType", String.valueOf(Driver))
+                .orderByChild("permit").equalTo("permit",userInformation.permit);*/
+        //too many where conditions
         countQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //dataSnapshot.getChildrenCount();
-                count.setText(dataSnapshot.getChildrenCount() + "are arriving on campus");
+                if(dataSnapshot !=null){
+                    for(DataSnapshot search : dataSnapshot.getChildren()){
+                        if (search.getValue() == Driver)
+                            if (search.getValue() == userInformation.permit) {
+                                count.setText(dataSnapshot.getChildrenCount() + " people are arriving on campus");
+                            }
+                    }
+                }
+
             }
 
             @Override
@@ -138,8 +147,8 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
 
             }
         });
-        int estimatedTimeMin = 1;
-        int estimatedTimeSec = 30;
+        //int estimatedTimeMin = 1;
+        //int estimatedTimeSec = 30;
         //eta.setText(estimatedTimeMin + " : " + estimatedTimeSec + " min");
     }
 
@@ -164,22 +173,22 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
 
     private void getActiveRiderInfo() {
         // mAuth = FirebaseAuth.getInstance();
-        FirebaseUser myactiveuser = mAuth.getCurrentUser();
         //mydb = FirebaseDatabase.getInstance().getReference();
-
-        final SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if(myactiveuser!=null){
-            activeUser = new ActiveUser(myactiveuser.getUid(),
-                    userDetails.getString("myactiveuser.name", ""),
-                    userDetails.getString("myactiveuser.phone", ""),
-                    userDetails.getString("myactiveuser.makeModel", ""),
-                    userDetails.getString("myactiveuser.year", ""),
-                    userDetails.getString("myactiveuser.color", ""),
-                    userDetails.getString("myactiveuser.permit", ""),
-                    userDetails.getFloat("myactiveuser.latitude", 0),
-                    userDetails.getFloat("myactiveuser.longitude", 0),
+        //load passenger details into active user on button click
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user!=null){
+            activeUser = new ActiveUser(user.getUid(),
+                    userInformation.name,
+                    userInformation.phone,
+                    userInformation.makeModel,
+                    userInformation.year,
+                    userInformation.color,
+                    userInformation.permit,
+                    userInformation.latitude,
+                    userInformation.longitude,
+                    "0",
                     Rider,
-                    userDetails.getLong("myactiveuser.timestamp", 0),
+                    userInformation.timestamp,
                     online,
                     available
             );
@@ -196,30 +205,44 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                 //add new entry
                 mydbactiveusers.child(activeUser.getUserId()).setValue(activeUser);
                 //query to search list of drivers
-                Query search = mydbactiveusers
-                        .equalTo("myType", String.valueOf(Driver))
-                        .equalTo("status", String.valueOf(available))
-                        .orderByChild("timestamp");
-                search.addListenerForSingleValueEvent(new ValueEventListener() {
+                Log.d("VALUE", String.valueOf(Driver));
+                //Query search = mydbactiveusers.orderByChild("myType").equalTo("myType", String.valueOf(Driver));
+                        /*.equalTo("status", String.valueOf(available))
+                        .orderByChild("timestamp");*/
+                mydbactiveusers.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if(dataSnapshot !=null){
-                            //get the list of drivers and update their status to hold
-                            ActiveUser driver = dataSnapshot.getValue(ActiveUser.class);
-                            mydbactiveusers.child(driver.getUserId()).child("status").setValue(hold);
-                            //go to next page and update the status to taken
-                            Intent myIntent = new Intent(Finder.this, FoundMatch.class);
-                            myIntent.putExtra("driver_user_id", driver.getUserId());
-                            myIntent.putExtra("driver_user_name", driver.getName());
-                            myIntent.putExtra("driver_user_phone", driver.getPhone());
-                            myIntent.putExtra("pickup_location", selectedPickupLocation);
-                            myIntent.putExtra("additional_info", additionalInfo.getText().toString());
-                            finish();
-                            startActivity(myIntent);
+                        if(dataSnapshot !=null && dataSnapshot.getValue()!=null){
+                            ActiveUser oldestDriver = null;
+                            for(DataSnapshot search : dataSnapshot.getChildren()){
+                                ActiveUser currentDriver = search.getValue(ActiveUser.class);
+                                Log.d("DRIVERINFO", currentDriver.getName());
+                                if(currentDriver.getMyState().equals(online) && currentDriver.getMyType().equals(Driver) && currentDriver.getStatus().equals(available)){
+                                    if (oldestDriver == null || oldestDriver.getTimestamp() > currentDriver.getTimestamp()){
+                                        oldestDriver = currentDriver;
+                                    }
+                                }
+                            }
+                            if (oldestDriver != null) {
+                                mydbactiveusers.child(oldestDriver.getUserId()).child("status").setValue(hold);
+                                //go to next page and update the status to taken
+                                Intent myIntent = new Intent(Finder.this, FoundMatch.class);
+                                myIntent.putExtra("driver_user_id", oldestDriver.getUserId());
+                                myIntent.putExtra("driver_user_name", oldestDriver.getName());
+                                myIntent.putExtra("driver_user_phone", oldestDriver.getPhone());
+                                myIntent.putExtra("pickup_location", selectedPickupLocation);
+                                myIntent.putExtra("additional_info", additionalInfo.getText().toString());
+                                finish();
+                                startActivity(myIntent);
+                            }else{
+                                //else toast error message
+                                Toast.makeText(Finder.this,"Please wait while we find a driver",Toast.LENGTH_LONG).show();
+                            }
                         }else{
                             //else toast error message
                             Toast.makeText(Finder.this,"Please wait while we find a driver",Toast.LENGTH_LONG).show();
                         }
+
                     }
 
                     @Override
@@ -242,7 +265,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
     public void onLocationChanged(Location location) {
 
         handler.post(new LocationTask(location));
-        handler.post(new DistanceTask(location));
+        //handler.post(new DistanceTask(location));
 
 
     }
@@ -288,7 +311,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
     }
 
 
-    private class DistanceTask implements Runnable {
+   /* private class DistanceTask implements Runnable {
         Location location;
         public DistanceTask(Location location) {
             this.location = location;
@@ -299,8 +322,8 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
             mydbactiveusers.child(activeUser.userId).child("latitude").setValue(location.getLatitude());
             mydbactiveusers.child(activeUser.userId).child("longitude").setValue(location.getLongitude());
             //not sure though if the exact user's location is loaded
-           /*?? Query location = mydbactiveusers.child(activeUser.getUserId()).child("status").equalTo("status", String.valueOf(taken))
-                    .equalTo("myType", String.valueOf(Driver));*/
+           *//*?? Query location = mydbactiveusers.child(activeUser.getUserId()).child("status").equalTo("status", String.valueOf(taken))
+                    .equalTo("myType", String.valueOf(Driver));*//*
         }
-    }
+    }*/
 }
