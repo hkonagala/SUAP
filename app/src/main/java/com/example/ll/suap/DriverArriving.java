@@ -50,7 +50,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private DrawerLayout mDrawerLayout;
     Button complete,missed,menu,profile,logout;
-    //Button call;
+    Button call;
     private UserInformation userInformation;
     private ActiveUser activeUser;
     private DatabaseReference mydb;
@@ -108,27 +108,25 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
         profile = (Button)findViewById(R.id.driver_arriving_profilebutton);
         logout = (Button)findViewById(R.id.driver_arriving_logoutbutton);
         eta = (TextView) findViewById(R.id.driver_arriving_tv_eta);
-        //TODO shift the button from found_match to driver_arriving
-        //call = (Button) findViewById(R.id.driver_arriving_callbutton);
+        call = (Button) findViewById(R.id.driver_arriving_callbutton);
 
         menu.setOnClickListener(this);
         complete.setOnClickListener(this);
         missed.setOnClickListener(this);
         profile.setOnClickListener(this);
         logout.setOnClickListener(this);
-        //TODO shift the button from found_match to driver_arriving
-        //call.setOnClickListener(this);
+        call.setOnClickListener(this);
         //implement map here
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawer(GravityCompat.START);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//TODO shift the button from found_match to driver_arriving
-       // call.setText("CALL " + driverName);
+         call.setText("CALL " + driverName);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -192,17 +190,16 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(DriverArriving.this,BeginningActivity.class));
-            /*case R.id.driver_arriving_callbutton:
+            case R.id.driver_arriving_callbutton:
                 //get phone number in database and replace phone number below with driver #
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse("tel:"+ driverPhone));
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(FoundMatch.this, new String[]{android.Manifest.permission.CALL_PHONE}, 125);
+                    ActivityCompat.requestPermissions(DriverArriving.this, new String[]{android.Manifest.permission.CALL_PHONE}, 125);
                     return;
                 }
                 startActivity(intent);
-                break;*/
-            //TODO shift the button from found_match to driver_arriving
+                break;
 
         }
     }

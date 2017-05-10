@@ -73,7 +73,6 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu = (Button)findViewById(R.id.driver_found_menubutton);
         profile = (Button)findViewById(R.id.driver_found_profilebutton);
         logout = (Button)findViewById(R.id.driver_found_logoutbutton);
-        confirm = (Button)findViewById(R.id.driver_found_confirmbutton);//TODO not implementing confirm on driver side, remove button
         call = (Button)findViewById(R.id.driver_found_callbutton);
         cancel = (Button)findViewById(R.id.driver_found_cancelbutton);
         passenger = (Button)findViewById(R.id.driver_found_passengerbutton);
@@ -84,7 +83,6 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
         logout.setOnClickListener(this);
-        confirm.setOnClickListener(this);//TODO not implementing confirm on driver side, remove button
         call.setOnClickListener(this);
         cancel.setOnClickListener(this);
         passenger.setOnClickListener(this);
@@ -112,10 +110,6 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(this,BeginningActivity.class));
-                break;
-            case R.id.driver_found_confirmbutton:
-                //TODO not implementing confirm on driver side, remove button
-                startActivity(new Intent(this, MainMenu.class));
                 break;
             case R.id.driver_found_callbutton:
                 ///TODO get phone number in database and replace phone number below with driver #
