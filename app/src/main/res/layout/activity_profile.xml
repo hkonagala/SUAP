@@ -47,16 +47,6 @@
         android:layout_toStartOf="@+id/profile_suapimage"
         android:layout_alignTop="@+id/toolbar" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bellalert"
-        android:layout_above="@+id/view"
-        android:layout_toEndOf="@+id/profile_suapimage"
-        android:layout_toRightOf="@+id/profile_suapimage"
-        android:layout_alignTop="@+id/toolbar" />
-
     <ImageView
         android:id="@+id/profile_personimage"
         android:layout_width="wrap_content"
