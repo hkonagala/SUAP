@@ -3,8 +3,10 @@ package com.example.ll.suap;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
     Button finish;
     ProgressDialog progressDialog;
     Handler handler = new Handler();
+    ImageView mySelfie;
 
     private static final String TAG = "ProfileCreation";
     private DatabaseReference mydb;
@@ -128,9 +132,32 @@ public class ProfileCreation2 extends AppCompatActivity implements View.OnClickL
 
     }
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    public void getPictureAndSaveInfo(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mySelfie.setImageBitmap(imageBitmap);
+        }
+        saveUserInformation();
+    }
+
     @Override
     public void onClick(View v){
-        saveUserInformation();
+        //here we'll ask for a photo
+        getPictureAndSaveInfo();
+
+        //saveUserInformation();
     }
 
     private void saveUserInformation() {
