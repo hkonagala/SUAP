@@ -31,7 +31,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
 
     private FirebaseAuth mAuth;
     private DrawerLayout mDrawerLayout;
-    Button driver, confirm, call, cancel, menu, profile, logout;
+    Button driver, confirm, cancel, menu, profile, logout;
     UserInformation userInformation;
     ActiveUser activeUser;
     private DatabaseReference mydb;
@@ -84,7 +84,6 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         driver = (Button) findViewById(R.id.foundmatch_driverbutton);
         menu = (Button) findViewById(R.id.foundmatch_menubutton);
         confirm = (Button) findViewById(R.id.foundmatch_confirmbutton);
-        call = (Button) findViewById(R.id.foundmatch_callbutton);//TODO shift the button from found_match to driver_arriving
         cancel = (Button) findViewById(foundmatch_cancelbutton);
         profile = (Button) findViewById(R.id.foundmatch_profilebutton);
         logout = (Button) findViewById(R.id.foundmatch_logoutbutton);
@@ -94,7 +93,6 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         //TODO display passenger name/picture in imageview2
         driver.setOnClickListener(this);
         confirm.setOnClickListener(this);
-        call.setOnClickListener(this);//TODO shift the button from found_match to driver_arriving
         cancel.setOnClickListener(this);
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -109,9 +107,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onResume() {
         super.onResume();
-        call.setText("CALL " + driverName);
     }
-    //TODO shift the button from found_match to driver_arriving
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -134,21 +130,6 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 mydbactiveusers.child(driverId).child("status").setValue(taken);
                 startActivity(myIntent);
                 break;
-            case R.id.foundmatch_callbutton:
-                //get phone number in database and replace phone number below with driver #
-                String number = "tel:"+ driverPhone.trim();
-                Log.d("DIALING: ", number);
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(number));
-                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(FoundMatch.this, new String[]{Manifest.permission.CALL_PHONE}, 125);
-                    return;
-                }
-                if (intent.resolveActivity(FoundMatch.this.getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-                break;
-            //TODO shift the button from found_match to driver_arriving
             case foundmatch_cancelbutton:
                 mydbactiveusers.child(driverId).child("status").setValue(available);
                 finish();

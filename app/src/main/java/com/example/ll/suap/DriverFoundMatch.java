@@ -39,7 +39,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
 
     private FirebaseAuth mAuth;
     private DrawerLayout mDrawerLayout;
-    Button passenger, confirm, call, cancel, menu, profile, logout;
+    Button passenger, call, cancel, menu, profile, logout;
     private UserInformation userInformation;
     ActiveUser activeUser;
     private DatabaseReference mydb;
@@ -96,7 +96,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu = (Button) findViewById(R.id.driver_found_menubutton);
         profile = (Button) findViewById(R.id.driver_found_profilebutton);
         logout = (Button) findViewById(R.id.driver_found_logoutbutton);
-        confirm = (Button) findViewById(R.id.driver_found_confirmbutton);//TODO not implementing confirm on driver side, remove button
+        //confirm = (Button) findViewById(R.id.driver_found_confirmbutton);
         call = (Button) findViewById(R.id.driver_found_callbutton);
         cancel = (Button) findViewById(R.id.driver_found_cancelbutton);
         passenger = (Button) findViewById(R.id.driver_found_passengerbutton);
@@ -107,7 +107,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
         logout.setOnClickListener(this);
-        confirm.setOnClickListener(this);//TODO not implementing confirm on driver side, remove button
+        //confirm.setOnClickListener(this);
         call.setOnClickListener(this);
         cancel.setOnClickListener(this);
         passenger.setOnClickListener(this);
@@ -158,10 +158,9 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 finish();
                 startActivity(new Intent(this,BeginningActivity.class));
                 break;
-            case R.id.driver_found_confirmbutton:
-                //TODO not implementing confirm on driver side, remove button
+            /*case R.id.driver_found_confirmbutton:
                 startActivity(new Intent(this, MainMenu.class));
-                break;
+                break;*/
             case R.id.driver_found_callbutton:
                 //get phone number in database and replace phone number below with driver #
                 String number = "tel:"+ riderPhone.trim();

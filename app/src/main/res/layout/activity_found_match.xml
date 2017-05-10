@@ -90,6 +90,7 @@
             <Button
                 android:layout_width="125dp"
                 android:layout_height="122dp"
+                android:id="@+id/foundmatch_driverbutton"
                 android:background="@drawable/personicon" />
 
         </LinearLayout>

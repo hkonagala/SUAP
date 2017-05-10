@@ -1,6 +1,7 @@
 package com.example.ll.suap;
 
 import android.*;
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -34,6 +35,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -130,13 +135,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
          call.setText("CALL " + driverName);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, 121212);
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
@@ -204,21 +203,35 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(DriverArriving.this,Profile.class));
                 break;
             case R.id.driver_arriving_logoutbutton:
+                signOffFromDatabase();
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(DriverArriving.this,BeginningActivity.class));
             case R.id.driver_arriving_callbutton:
-                //get phone number in database and replace phone number below with driver #
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+ driverPhone));
+                String number = "tel:"+ driverPhone.trim();
+                Log.d("DIALING: ", number);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(number));
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(DriverArriving.this, new String[]{android.Manifest.permission.CALL_PHONE}, 125);
+                    ActivityCompat.requestPermissions(DriverArriving.this, new String[]{Manifest.permission.CALL_PHONE}, 125);
                     return;
                 }
-                startActivity(intent);
+                if (intent.resolveActivity(DriverArriving.this.getPackageManager()) != null) {
+                    startActivity(intent);
+                }
                 break;
-
         }
+    }
+
+    private void signOffFromDatabase() {
+        mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
+        mydbactiveusers.child(driverId).child("myState").setValue(offline);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        signOffFromDatabase();
     }
 
     @Override
@@ -226,8 +239,8 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
         currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
         if (driverLocation != null) {
             LatLng[] data = new LatLng[2];
-            data[1] = currentLocation;
-            data[2] = driverLocation;
+            data[0] = currentLocation;
+            data[1] = driverLocation;
             UpdateLocationTask updateLocationTask = new UpdateLocationTask();
             updateLocationTask.execute(data);
         }
@@ -248,15 +261,15 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private class UpdateLocationTask extends AsyncTask<LatLng, Integer, StringBuilder> {
+    private class UpdateLocationTask extends AsyncTask<LatLng, Integer, String> {
 
 
         @Override
-        protected StringBuilder doInBackground(LatLng... params) {
+        protected String doInBackground(LatLng... params) {
             LatLng driverLoc = params[0];
             LatLng passengerLoc = params[1];
             String API_KEY = getString(R.string.GMAPS_API_KEY);
-            String requestUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=" + driverLoc.latitude + "," + driverLoc.longitude + "&destination="
+            String requestUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=" + driverLoc.latitude + "," + driverLoc.longitude + "&destination="
                     + passengerLoc.latitude + "," + passengerLoc.longitude + "&mode=driving&key=" + API_KEY;
             String result;
             String inputLine;
@@ -298,7 +311,25 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
                 result = null;
             }
             Log.d("ETARESULT", result);
-            return null;
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            try {
+                JSONObject mainJson = new JSONObject(s);
+                JSONArray mainArray = mainJson.getJSONArray("routes");
+                JSONObject route = mainArray.getJSONObject(0);
+                JSONArray legs = route.getJSONArray("legs");
+                JSONObject leg = legs.getJSONObject(0);
+                JSONObject duration = leg.getJSONObject("duration");
+                String etaString = duration.getString("text");
+                eta.setText(etaString);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

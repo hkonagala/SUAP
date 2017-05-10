@@ -3,12 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="D:\SUAP\SUAP_628\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="D:\latestCode\SUAP_628\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1ad19d2dfd7dc112074b5f07f95de6839db955de">
-        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_70ced4783c0814a0954c1bf531cb880317ac029e\classes.dex" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="D:\latestCode\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_68bae202d1f351152aa7598d0ba29be3c51465b6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +18,24 @@
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_69868b60313c20cdd330663b20d3e04bd9d06695\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\SUAP\SUAP_628\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1ad19d2dfd7dc112074b5f07f95de6839db955de">
+        <dex dex="D:\SUAP\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_70ced4783c0814a0954c1bf531cb880317ac029e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\latestCode\SUAP_628\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="17ffb239a61763b08c4e4a363dd0f6d236a44449">
+        <dex dex="D:\latestCode\SUAP_628\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6f2ba85bad88bd3b4c7d745c2b4cce6f7f956e13\classes.dex" />
     </item>
 
 </items>
