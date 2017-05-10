@@ -113,7 +113,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.foundmatch_driverbutton:
-                startActivity(new Intent(this, DriverProfile.class));
+                startActivity(new Intent(this, OtherProfile.class));//click on driver image should take the users to their profile
                 break;
             case R.id.foundmatch_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);

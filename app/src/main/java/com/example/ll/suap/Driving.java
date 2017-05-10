@@ -72,6 +72,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
         profile = (Button)findViewById(R.id.driving_profilebutton);
         logout = (Button)findViewById(R.id.driving_logoutbutton);
 
+
         cancel.setOnClickListener(this);
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
