@@ -145,7 +145,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ActiveUser driver = dataSnapshot.getValue(ActiveUser.class);
-                if (driver != null && driver.latitude > 0 && driver.longitude > 0){
+                if (driver != null && driver.latitude != 0 && driver.longitude != 0){
                     driverLocation = new LatLng(driver.latitude, driver.longitude);
                 }
             }
