@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.example.ll.suap.ActiveUser.ActiveState.offline;
 import static com.example.ll.suap.ActiveUser.UserType.Driver;
 import static com.example.ll.suap.ActiveUser.UserType.Rider;
 import static com.example.ll.suap.ActiveUser.status.available;
@@ -136,6 +137,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
 
         switch(v.getId()){
             case R.id.driving_cancelbutton:
+                mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
                 startActivity(new Intent(Driving.this, MainMenu.class));
                 break;
             case R.id.driving_menubutton:
