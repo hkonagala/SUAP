@@ -21,6 +21,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -148,6 +149,22 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
                 ActiveUser driver = dataSnapshot.getValue(ActiveUser.class);
                 if (driver != null && driver.latitude > 0 && driver.longitude > 0){
                     driverLocation = new LatLng(driver.latitude, driver.longitude);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        mydbrides.child(rideId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Ride currentRide = dataSnapshot.getValue(Ride.class);
+                if (currentRide.status.equals(Ride.ride_status.cancelled)){
+                    Toast.makeText(getApplicationContext(), "Driver cancelled the ride"
+                            , Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(DriverArriving.this, MainMenu.class));
                 }
             }
 

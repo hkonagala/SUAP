@@ -122,23 +122,21 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
-        final Query countQuery = mydbactiveusers
-                .orderByChild("myState").equalTo("myState", String.valueOf(online));
-                /*.orderByChild("myType").equalTo("myType", String.valueOf(Driver))
-                .orderByChild("permit").equalTo("permit",userInformation.permit);*/
-        //too many where conditions
-        countQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+        mydbactiveusers.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //dataSnapshot.getChildrenCount();
                 if(dataSnapshot !=null && dataSnapshot.getValue()!=null){
+                    int countNum = 0;
                     for(DataSnapshot search : dataSnapshot.getChildren()){
                         ActiveUser currentDriver = search.getValue(ActiveUser.class);
-                        if (currentDriver.getMyType().equals(Driver) && currentDriver.getPermit().equals(userInformation.permit))
-                                count.setText(dataSnapshot.getChildrenCount() + " people are arriving on campus");
-                        //TODO check the query
-
+                        if (currentDriver.getMyType().equals(Driver)
+                                && currentDriver.getPermit().equals(userInformation.permit)
+                                && currentDriver.getStatus().equals(available)
+                                && currentDriver.getMyState().equals(online)) {
+                            countNum++;
+                        }
                     }
+                    count.setText(countNum + " people are arriving on campus");
                 }
 
             }
@@ -178,6 +176,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         //load passenger details into active user on button click
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){
+            Long timestamp = System.currentTimeMillis();
             activeUser = new ActiveUser(user.getUid(),
                     userInformation.name,
                     userInformation.phone,
@@ -189,7 +188,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                     userInformation.longitude,
                     "0",
                     Rider,
-                    userInformation.timestamp,
+                    timestamp,
                     online,
                     available
             );
@@ -218,7 +217,10 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                             for(DataSnapshot search : dataSnapshot.getChildren()){
                                 ActiveUser currentDriver = search.getValue(ActiveUser.class);
                                 Log.d("DRIVERINFO", currentDriver.getName());
-                                if(currentDriver.getMyState().equals(online) && currentDriver.getMyType().equals(Driver) && currentDriver.getStatus().equals(available)){
+                                if(currentDriver.getMyState().equals(online)
+                                        && currentDriver.getMyType().equals(Driver)
+                                        && currentDriver.getStatus().equals(available)
+                                        && currentDriver.getPermit().equalsIgnoreCase(userInformation.permit)){
                                     if (oldestDriver == null || oldestDriver.getTimestamp() > currentDriver.getTimestamp()){
                                         oldestDriver = currentDriver;
                                     }

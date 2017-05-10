@@ -9,7 +9,8 @@ public class Ride {
     public enum ride_status{
         completed,//ride completed
         missed,//ride missed
-        ongoing//on going ride
+        ongoing,//on going ride
+        cancelled
     }
 
     public String passengerId;

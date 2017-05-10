@@ -11,6 +11,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -135,13 +136,17 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.foundmatch_callbutton:
                 //get phone number in database and replace phone number below with driver #
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+ driverPhone));
+                String number = "tel:"+ driverPhone.trim();
+                Log.d("DIALING: ", number);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(number));
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(FoundMatch.this, new String[]{Manifest.permission.CALL_PHONE}, 125);
                     return;
                 }
-                startActivity(intent);
+                if (intent.resolveActivity(FoundMatch.this.getPackageManager()) != null) {
+                    startActivity(intent);
+                }
                 break;
             //TODO shift the button from found_match to driver_arriving
             case foundmatch_cancelbutton:
