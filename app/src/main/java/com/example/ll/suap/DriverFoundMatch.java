@@ -1,9 +1,12 @@
 package com.example.ll.suap;
 
+import android.*;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -70,7 +73,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu = (Button)findViewById(R.id.driver_found_menubutton);
         profile = (Button)findViewById(R.id.driver_found_profilebutton);
         logout = (Button)findViewById(R.id.driver_found_logoutbutton);
-        confirm = (Button)findViewById(R.id.driver_found_confirmbutton);
+        confirm = (Button)findViewById(R.id.driver_found_confirmbutton);//TODO not implementing confirm on driver side, remove button
         call = (Button)findViewById(R.id.driver_found_callbutton);
         cancel = (Button)findViewById(R.id.driver_found_cancelbutton);
         passenger = (Button)findViewById(R.id.driver_found_passengerbutton);
@@ -81,7 +84,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
         logout.setOnClickListener(this);
-        confirm.setOnClickListener(this);
+        confirm.setOnClickListener(this);//TODO not implementing confirm on driver side, remove button
         call.setOnClickListener(this);
         cancel.setOnClickListener(this);
         passenger.setOnClickListener(this);
@@ -111,12 +114,17 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(this,BeginningActivity.class));
                 break;
             case R.id.driver_found_confirmbutton:
-                //TODO some link missing
+                //TODO not implementing confirm on driver side, remove button
                 startActivity(new Intent(this, MainMenu.class));
                 break;
             case R.id.driver_found_callbutton:
-                //get phone number in database and replace phone number below with passenger #
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(riderPhone));
+                ///TODO get phone number in database and replace phone number below with driver #
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:"+ riderPhone));
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(DriverFoundMatch.this, new String[]{android.Manifest.permission.CALL_PHONE}, 125);
+                    return;
+                }
                 startActivity(intent);
                 break;
             case R.id.driver_found_cancelbutton:

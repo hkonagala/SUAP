@@ -83,7 +83,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         driver = (Button) findViewById(R.id.foundmatch_driverbutton);
         menu = (Button) findViewById(R.id.foundmatch_menubutton);
         confirm = (Button) findViewById(R.id.foundmatch_confirmbutton);
-        call = (Button) findViewById(R.id.foundmatch_callbutton);
+        call = (Button) findViewById(R.id.foundmatch_callbutton);//TODO shift the button from found_match to driver_arriving
         cancel = (Button) findViewById(foundmatch_cancelbutton);
         profile = (Button) findViewById(R.id.foundmatch_profilebutton);
         logout = (Button) findViewById(R.id.foundmatch_logoutbutton);
@@ -93,7 +93,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         //TODO display passenger name/picture in imageview2
         driver.setOnClickListener(this);
         confirm.setOnClickListener(this);
-        call.setOnClickListener(this);
+        call.setOnClickListener(this);//TODO shift the button from found_match to driver_arriving
         cancel.setOnClickListener(this);
         menu.setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -110,6 +110,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         super.onResume();
         call.setText("CALL " + driverName);
     }
+    //TODO shift the button from found_match to driver_arriving
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -142,6 +143,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 }
                 startActivity(intent);
                 break;
+            //TODO shift the button from found_match to driver_arriving
             case foundmatch_cancelbutton:
                 mydbactiveusers.child(driverId).child("status").setValue(available);
                 finish();

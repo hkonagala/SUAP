@@ -131,12 +131,13 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //dataSnapshot.getChildrenCount();
-                if(dataSnapshot !=null){
+                if(dataSnapshot !=null && dataSnapshot.getValue()!=null){
                     for(DataSnapshot search : dataSnapshot.getChildren()){
-                        if (search.getValue() == Driver)
-                            if (search.getValue() == userInformation.permit) {
+                        ActiveUser currentDriver = search.getValue(ActiveUser.class);
+                        if (currentDriver.getMyType().equals(Driver) && currentDriver.getPermit().equals(userInformation.permit))
                                 count.setText(dataSnapshot.getChildrenCount() + " people are arriving on campus");
-                            }
+                        //TODO check the query
+
                     }
                 }
 
