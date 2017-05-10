@@ -29,8 +29,6 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignRight="@+id/button2"
         android:layout_below="@+id/toolbar"
         android:layout_marginBottom="50dp"
         android:background="#95989A"
@@ -64,52 +62,34 @@
         android:id="@+id/driver_found_drivername_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView5"
-        android:layout_below="@+id/view"
-        android:layout_marginTop="57dp"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView"
         android:gravity="center"
         android:text="DRIVER NAME"
         android:textColor="#ede698"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/textView14"
+        android:layout_toStartOf="@+id/textView14" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/matchicon"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
-
-    <Button
-        android:id="@+id/driver_found_passengerbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView5"
-        android:layout_alignEnd="@+id/view"
-        android:layout_alignRight="@+id/view"
-        android:layout_alignTop="@+id/driver_found_drivername_tv"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
-        android:layout_toRightOf="@+id/imageView5"
-        android:gravity="center"
-        android:background="#333937"
-        android:textSize="16sp"
-        android:text="Passenger Name"
-        android:textColor="#79de70" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
         android:textColor="#ede698"
         android:textSize = "18sp"
         android:text="Pickup Location:"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/driver_found_drivername_tv"
         android:layout_alignRight="@+id/imageView5"
         android:layout_alignEnd="@+id/imageView5" />
 
@@ -125,37 +105,22 @@
         android:layout_toEndOf="@+id/textView12" />
 
     <Button
-        android:id="@+id/driver_found_confirmbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/roundedbluerectangle"
-        android:textColor="#FFFFFF"
-        android:text="Confirm"
-        android:layout_alignRight="@+id/driver_found_callbutton"
-        android:layout_alignEnd="@+id/driver_found_callbutton"
-        android:layout_alignLeft="@+id/driver_found_callbutton"
-        android:layout_alignStart="@+id/driver_found_callbutton" />
-
-    <Button
         android:id="@+id/driver_found_callbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="Call Passenger"
+        android:layout_alignLeft="@+id/driver_found_cancelbutton"
+        android:layout_alignStart="@+id/driver_found_cancelbutton"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="43dp"
         android:background="@drawable/roundedbluerectangle"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/driver_found_confirmbutton"
-        android:layout_toRightOf="@+id/driver_found_drivername_tv"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView" />
+        android:text="Call"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/driver_found_cancelbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="34dp"
         android:text="Cancel"
         android:background="@drawable/roundedbluerectangle"
         android:textColor="#FFFFFF"
@@ -169,8 +134,47 @@
         android:textSize="20sp"
         android:textColor="#FFFFFF"
         android:text="Match Found!"
-        android:layout_above="@+id/imageView5"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/driver_icon"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/driver_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/personicon"
+        android:layout_toLeftOf="@+id/driver_found_callbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/driver_found_passengerbutton"
+        android:layout_alignTop="@+id/driver_found_passengerbutton" />
+
+    <Button
+        android:id="@+id/driver_found_passengerbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/driver_found_passengername_tv"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/textView14"
+        android:layout_toRightOf="@+id/textView14"
+        android:background="@drawable/personicon"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/driver_found_passengername_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="PASSENGER NAME"
+        android:textColor="#79de70"
+        android:layout_above="@+id/textView12"
+        android:layout_toRightOf="@+id/driver_found_callbutton"
+        android:layout_toEndOf="@+id/driver_found_callbutton" />
 
 
 </RelativeLayout>

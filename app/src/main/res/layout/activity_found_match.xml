@@ -8,133 +8,139 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#333937"
-    tools:context="com.example.ll.suap.FoundMatch">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#333937"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_marginTop="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:context="com.example.ll.suap.FoundMatch">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_alignRight="@+id/button3"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginBottom="50dp"
-        android:background="#95989A"
-        android:layout_alignLeft="@+id/foundmatch_menubutton"
-        android:layout_alignStart="@+id/foundmatch_menubutton" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#333937"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
-        app:srcCompat="@drawable/icon3"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignTop="@+id/toolbar" />
-
-    <Button
-        android:id="@+id/foundmatch_menubutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/toolbar"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:background="@drawable/sidebar" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linear1"
-        android:weightSum="1"
-        android:layout_below="@+id/view"
-        android:layout_alignLeft="@+id/view"
-        android:layout_alignStart="@+id/view"
-        android:layout_alignRight="@+id/view"
-        android:layout_alignEnd="@+id/view">
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignEnd="@+id/button3"
+            android:layout_alignRight="@+id/button3"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginBottom="50dp"
+            android:background="#95989A"
+            android:layout_alignLeft="@+id/foundmatch_menubutton"
+            android:layout_alignStart="@+id/foundmatch_menubutton" />
 
         <ImageView
-            android:id="@+id/foundmatch_passengerimgage"
-            android:layout_width="123dp"
-            android:layout_height="124dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            app:srcCompat="@drawable/personicon" />
-
-        <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/matchicon" />
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/icon3"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/toolbar"
+            android:layout_alignTop="@+id/toolbar" />
 
         <Button
-            android:id="@+id/foundmatch_driverbutton"
-            android:layout_width="125dp"
-            android:layout_height="122dp"
-            android:background="@drawable/personicon" />
+            android:id="@+id/foundmatch_menubutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/toolbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
+            android:background="@drawable/sidebar" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linear1"
+            android:weightSum="1"
+            android:layout_below="@+id/view"
+            android:layout_alignLeft="@+id/view"
+            android:layout_alignStart="@+id/view"
+            android:layout_alignRight="@+id/view"
+            android:layout_alignEnd="@+id/view">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:id="@+id/foundmatch_confirmbutton"
-        android:background="@drawable/roundedgreenrectangle"
-        android:text="CONFIRM PICK UP"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/linear1"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toStartOf="@+id/button3"
-        android:layout_toRightOf="@+id/foundmatch_menubutton"
-        android:layout_toEndOf="@+id/foundmatch_menubutton" />
+            <ImageView
+                android:id="@+id/foundmatch_passengerimgage"
+                android:layout_width="123dp"
+                android:layout_height="124dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginStart="23dp"
+                app:srcCompat="@drawable/personicon" />
 
-    <Button
-        android:id="@+id/foundmatch_callbutton"
-        android:text="CALL DRIVER"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/roundedgreenrectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/foundmatch_confirmbutton"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/matchicon" />
 
-    <Button
-        android:id="@+id/foundmatch_cancelbutton"
-        android:text="CANCEL"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/roundedgreenrectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/foundmatch_callbutton"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="125dp"
+                android:layout_height="122dp"
+                android:background="@drawable/personicon" />
 
-</RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/foundmatch_confirmbutton"
+            android:background="@drawable/roundedgreenrectangle"
+            android:text="CONFIRM PICK UP"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="83dp"
+            android:layout_below="@+id/linear1"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/foundmatch_cancelbutton"
+            android:text="CANCEL"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/roundedgreenrectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_below="@+id/foundmatch_confirmbutton"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/foundmatch_passengername_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:text="PASSENGER NAME"
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/linear1"
+            android:layout_alignLeft="@+id/linear1"
+            android:layout_alignStart="@+id/linear1"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/foundmatch_drivername_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DRIVER NAME"
+            android:textColor="#FFFFFF"
+            android:layout_alignBaseline="@+id/foundmatch_passengername_tv"
+            android:layout_alignBottom="@+id/foundmatch_passengername_tv"
+            android:layout_toRightOf="@+id/foundmatch_cancelbutton"
+            android:layout_toEndOf="@+id/foundmatch_cancelbutton" />
+
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/drawerView"
         android:layout_width="175dp"
