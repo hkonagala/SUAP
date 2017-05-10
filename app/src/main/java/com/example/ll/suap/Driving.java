@@ -38,6 +38,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mydbactiveusers;
     private DatabaseReference mydbrides;
     private DatabaseReference mydb;
+    String riderId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,8 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
         mydb = FirebaseDatabase.getInstance().getReference();
         mydbactiveusers = mydb.child("active_users");
         mydbrides = mydb.child("rides");
-
+        Intent myIntent = getIntent();
+        riderId = myIntent.getStringExtra("rider_user_id");//TODO check this
 
 
         mydbactiveusers.child(userInformation.userId).addValueEventListener(new ValueEventListener() {
@@ -147,9 +149,21 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
                 startActivity(new Intent(Driving.this,Profile.class));
                 break;
             case R.id.driving_logoutbutton:
+                signOffFromDatabase();
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(Driving.this,BeginningActivity.class));
         }
+    }
+
+    private void signOffFromDatabase() {
+        mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
+        mydbactiveusers.child(riderId).child("myState").setValue(offline);//TODO check this
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        signOffFromDatabase();
     }
 }

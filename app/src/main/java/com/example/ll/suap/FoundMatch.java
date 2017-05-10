@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 
+import static com.example.ll.suap.ActiveUser.ActiveState.offline;
 import static com.example.ll.suap.ActiveUser.status.available;
 import static com.example.ll.suap.ActiveUser.status.taken;
 import static com.example.ll.suap.R.id.foundmatch_cancelbutton;
@@ -139,10 +140,22 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
                 startActivity(new Intent(FoundMatch.this,Profile.class));
                 break;
             case R.id.foundmatch_logoutbutton:
+                signOffFromDatabase();
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(FoundMatch.this,BeginningActivity.class));
         }
+    }
+
+    private void signOffFromDatabase() {
+        mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
+        mydbactiveusers.child(driverId).child("myState").setValue(offline);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        signOffFromDatabase();
     }
 
     private void getDriverInfo() {

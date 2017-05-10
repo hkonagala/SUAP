@@ -154,6 +154,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(this,Profile.class));
                 break;
             case R.id.driver_found_logoutbutton:
+                signOffFromDatabase();
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(this,BeginningActivity.class));
@@ -187,6 +188,17 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
                 break;
 
         }
+    }
+
+    private void signOffFromDatabase() {
+        mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
+        mydbactiveusers.child(riderId).child("myState").setValue(offline);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        signOffFromDatabase();
     }
 
     @Override

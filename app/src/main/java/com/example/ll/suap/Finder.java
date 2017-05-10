@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.example.ll.suap.ActiveUser.ActiveState.offline;
 import static com.example.ll.suap.ActiveUser.ActiveState.online;
 import static com.example.ll.suap.ActiveUser.UserType.Driver;
 import static com.example.ll.suap.ActiveUser.UserType.Rider;
@@ -56,6 +57,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
     Spinner pickupLocation;
     private String selectedPickupLocation;
     EditText additionalInfo;
+    String driverId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,8 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         pickupLocation = (Spinner) findViewById(R.id.finder_spinner_location);
         pickupLocation.setOnItemSelectedListener(this);
         additionalInfo = (EditText) findViewById(R.id.finder_et_info);
+        Intent myIntent = getIntent();
+        driverId = myIntent.getStringExtra("driver_user_id");//TODO check this
 
         mydbchildusers = mydb.child("users");
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -164,10 +168,22 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                 startActivity(new Intent(Finder.this,Profile.class));
                 break;
             case R.id.finder_logoutbutton:
+                signOffFromDatabase();
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(Finder.this,BeginningActivity.class));
         }
+    }
+
+    private void signOffFromDatabase() {
+        mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
+        mydbactiveusers.child(driverId).child("myState").setValue(offline);//TODO check this
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        signOffFromDatabase();
     }
 
     private void getActiveRiderInfo() {
