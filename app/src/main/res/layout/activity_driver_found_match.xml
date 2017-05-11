@@ -33,7 +33,9 @@
         android:layout_marginBottom="50dp"
         android:background="#95989A"
         android:layout_alignLeft="@+id/driver_found_menubutton"
-        android:layout_alignStart="@+id/driver_found_menubutton" />
+        android:layout_alignStart="@+id/driver_found_menubutton"
+        android:layout_alignRight="@+id/driver_found_passengername_tv"
+        android:layout_alignEnd="@+id/driver_found_passengername_tv" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -67,8 +69,10 @@
         android:textColor="#ede698"
         android:textSize="16sp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/textView14"
-        android:layout_toStartOf="@+id/textView14" />
+        android:layout_alignRight="@+id/driver_icon"
+        android:layout_alignEnd="@+id/driver_icon"
+        android:layout_alignLeft="@+id/driver_icon"
+        android:layout_alignStart="@+id/driver_icon" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -83,38 +87,40 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
         android:textColor="#ede698"
         android:textSize = "18sp"
         android:text="Pickup Location:"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/driver_found_drivername_tv"
-        android:layout_alignRight="@+id/imageView5"
-        android:layout_alignEnd="@+id/imageView5" />
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/driver_found_passengername_tv"
+        android:layout_alignLeft="@+id/driver_found_callbutton"
+        android:layout_alignStart="@+id/driver_found_callbutton"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
 
     <TextView
         android:id="@+id/driver_found_location_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView12"
         android:text="Location Here"
         android:textColor="#FFFFFF"
         android:textSize = "18sp"
-        android:layout_toRightOf="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12" />
+        android:layout_above="@+id/driver_found_callbutton"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5" />
 
     <Button
         android:id="@+id/driver_found_callbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/driver_found_cancelbutton"
-        android:layout_alignStart="@+id/driver_found_cancelbutton"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="46dp"
         android:background="@drawable/roundedbluerectangle"
         android:text="Call"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView12"
+        android:layout_alignLeft="@+id/driver_found_drivername_tv"
+        android:layout_alignStart="@+id/driver_found_drivername_tv"
+        android:layout_alignRight="@+id/driver_found_passengername_tv"
+        android:layout_alignEnd="@+id/driver_found_passengername_tv" />
 
     <Button
         android:id="@+id/driver_found_cancelbutton"
@@ -125,7 +131,10 @@
         android:background="@drawable/roundedbluerectangle"
         android:textColor="#FFFFFF"
         android:layout_below="@+id/driver_found_callbutton"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/driver_found_callbutton"
+        android:layout_alignEnd="@+id/driver_found_callbutton"
+        android:layout_alignLeft="@+id/driver_found_callbutton"
+        android:layout_alignStart="@+id/driver_found_callbutton" />
 
     <TextView
         android:id="@+id/textView14"
@@ -140,29 +149,23 @@
 
     <ImageView
         android:id="@+id/driver_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         app:srcCompat="@drawable/personicon"
-        android:layout_toLeftOf="@+id/driver_found_callbutton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/driver_found_passengerbutton"
-        android:layout_alignTop="@+id/driver_found_passengerbutton" />
+        android:layout_alignTop="@+id/driver_found_passengerbutton"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view" />
 
     <Button
         android:id="@+id/driver_found_passengerbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/driver_found_passengername_tv"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/view"
-        android:layout_marginBottom="12dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="12dp"
-        android:layout_toEndOf="@+id/textView14"
-        android:layout_toRightOf="@+id/textView14"
         android:background="@drawable/personicon"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_below="@+id/view"
+        android:layout_toRightOf="@+id/textView14"
+        android:layout_toEndOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/driver_found_passengername_tv"
@@ -172,9 +175,12 @@
         android:textSize="16sp"
         android:text="PASSENGER NAME"
         android:textColor="#79de70"
-        android:layout_above="@+id/textView12"
-        android:layout_toRightOf="@+id/driver_found_callbutton"
-        android:layout_toEndOf="@+id/driver_found_callbutton" />
+        android:layout_alignBaseline="@+id/driver_found_drivername_tv"
+        android:layout_alignBottom="@+id/driver_found_drivername_tv"
+        android:layout_alignRight="@+id/driver_found_passengerbutton"
+        android:layout_alignEnd="@+id/driver_found_passengerbutton"
+        android:layout_alignLeft="@+id/driver_found_passengerbutton"
+        android:layout_alignStart="@+id/driver_found_passengerbutton" />
 
 
 </RelativeLayout>
@@ -187,26 +193,37 @@
         android:layout_gravity="start">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/personicon" />
+
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/personicon" />
+            android:layout_below="@+id/imageView3"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/driver_found_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedgreenrectangle"
             android:text="Profile"
-            android:textColor="#FFFFFF" />
+            android:background="@drawable/roundedgreenrectangle"
+            android:textColor="#FFFFFF"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/driver_found_profilebutton"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/driver_found_logoutbutton"
+            android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedgreenrectangle"
-            android:text="Log Out"
-            android:textColor="#FFFFFF" />
-
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -69,7 +69,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
         mydb = FirebaseDatabase.getInstance().getReference();
         pickupLocation = (Spinner) findViewById(R.id.finder_spinner_location);
         pickupLocation.setOnItemSelectedListener(this);
-        additionalInfo = (EditText) findViewById(R.id.finder_et_info);
+        //additionalInfo = (EditText) findViewById(R.id.finder_et_info);
         Intent myIntent = getIntent();
         driverId = myIntent.getStringExtra("driver_user_id");//TODO check this
 
@@ -140,7 +140,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                             countNum++;
                         }
                     }
-                    count.setText(countNum + " people are arriving on campus");
+                    count.setText(countNum + " driver(s) are arriving on campus");
                 }
 
             }
@@ -177,7 +177,7 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
 
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
-        mydbactiveusers.child(driverId).child("myState").setValue(offline);//TODO check this
+       // mydbactiveusers.child(driverId).child("myState").setValue(offline);//TODO check this
     }
 
     @Override
@@ -250,7 +250,8 @@ public class Finder extends AppCompatActivity implements View.OnClickListener, L
                                 myIntent.putExtra("driver_user_name", oldestDriver.getName());
                                 myIntent.putExtra("driver_user_phone", oldestDriver.getPhone());
                                 myIntent.putExtra("pickup_location", selectedPickupLocation);
-                                myIntent.putExtra("additional_info", additionalInfo.getText().toString());
+                                //myIntent.putExtra("additional_info", additionalInfo.getText().toString());
+                                myIntent.putExtra("rider_user_name", userInformation.name);
                                 finish();
                                 startActivity(myIntent);
                             }else{

@@ -5,17 +5,27 @@
     <string name="drawer_close">CLOSED</string>
 
     <string-array name="location_array">
-        <item>pickup location</item>
+        <item>Please select a pickup location</item>
         <item>Performing Arts</item>
         <item>Commons</item>
         <item>Physics Building</item>
         <item>Admin Building</item>
         <item>Walker Avenue</item>
-        <item>Dorms</item>
-        <item>Other</item>
+        <item>Public Policy Building</item>
+        <item>Community Center</item>
+        <item>Library</item>
+        <item>Erickson Hall</item>
+        <item>Harbor Hall</item>
+        <item>Chesapeake Hall</item>
+        <item>Susquehanna Hall</item>
+        <item>Patapsco Hall</item>
+        <item>Academic Row Entrance</item>
+        <item>Susquehanna Hall</item>
+        <item>Potomac Hall</item>
     </string-array>
 
     <string-array name="permit_array">
+        <item> Please select a permit type</item>
         <item>A</item>
         <item>B</item>
         <item>C</item>

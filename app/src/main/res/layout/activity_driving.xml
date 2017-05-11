@@ -8,105 +8,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-<RelativeLayout
-    android:id="@+id/mainView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#333937"
-    tools:context="com.example.ll.suap.Driving">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
+        android:id="@+id/mainView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#333937"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_marginTop="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:context="com.example.ll.suap.Driving">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_alignLeft="@+id/driving_menubutton"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignStart="@+id/driving_menubutton"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginBottom="50dp"
-        android:background="#95989A" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#333937"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
-        app:srcCompat="@drawable/icon3"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignTop="@+id/toolbar" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/driving_menubutton"
+            android:layout_alignStart="@+id/driving_menubutton"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginBottom="50dp"
+            android:background="#95989A" />
 
-    <Button
-        android:id="@+id/driving_menubutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/sidebar"
-        android:layout_alignTop="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_above="@+id/view" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/icon3"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/toolbar"
+            android:layout_alignTop="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ede698"
-        android:textSize="17sp"
-        android:text="Your Arrival is Being Tracked"
-        android:layout_below="@+id/view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        <Button
+            android:id="@+id/driving_menubutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
+            android:layout_above="@+id/view" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/caricon"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ede698"
+            android:textSize="17sp"
+            android:text="Your Arrival is Being Tracked"
+            android:layout_below="@+id/view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:textColor="#ede698"
-        android:textSize="38sp"
-        android:text="DRIVE SAFELY"
-        android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            app:srcCompat="@drawable/carappicon" />
 
-    <Button
-        android:id="@+id/driving_cancelbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/roundedbluerectangle"
-        android:text="Cancel"
-        android:textColor="#FFFFFF" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textColor="#ede698"
+            android:textSize="38sp"
+            android:text="DRIVE SAFELY"
+            android:layout_below="@+id/imageView2"
+            android:layout_centerHorizontal="true" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/driving_cancelbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageView2"
+            android:layout_alignLeft="@+id/imageView2"
+            android:layout_alignRight="@+id/imageView2"
+            android:layout_alignStart="@+id/imageView2"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedbluerectangle"
+            android:text="Cancel"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/drawerView"
@@ -118,25 +116,38 @@
 
         <ImageView
             android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/personicon" />
+
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/personicon" />
+            android:layout_below="@+id/imageView3"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/driving_profilebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
-            android:background="@drawable/roundedbluerectangle"
+            android:background="@drawable/roundedgreenrectangle"
             android:textColor="#FFFFFF"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/driving_profilebutton"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/driving_logoutbutton"
             android:text="Log Out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedbluerectangle"
+            android:background="@drawable/roundedgreenrectangle"
             android:textColor="#FFFFFF"/>
+
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

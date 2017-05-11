@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,116 +8,78 @@
     android:background="#333937"
     tools:context="com.example.ll.suap.ProfileCreation2">
 
-    <TextView
-        android:id="@+id/profilecreate2_tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Name"
-        android:textColor="#ede698"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/profilecreate2_et_name"
-        android:layout_alignStart="@+id/profilecreate2_et_name" />
-
     <EditText
         android:id="@+id/profilecreate2_et_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/roundedrectangle"
+        android:layout_marginTop="22dp"
+        android:background="#333937"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_below="@+id/profilecreate2_tv_name"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:id="@+id/profilecreate2_tv_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone Number (Numbers Only)"
-        android:textColor="#ede698"
-        android:layout_below="@+id/profilecreate2_et_name"
-        android:layout_marginTop="15dp"
-        android:layout_alignLeft="@+id/profilecreate2_et_name"
-        android:layout_alignStart="@+id/profilecreate2_et_name" />
+        android:hint="Name"
+        android:textColorHint="#FFFFFF"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignLeft="@+id/profilecreate2_et_phone"
+        android:layout_alignStart="@+id/profilecreate2_et_phone" />
 
     <EditText
         android:id="@+id/profilecreate2_et_phone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/roundedrectangle"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#333937"
+        android:hint="Phone Number (Numbers Only)"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="phone"
-        android:layout_below="@+id/profilecreate2_tv_phone"
-        android:layout_alignLeft="@+id/profilecreate2_tv_phone"
-        android:layout_alignStart="@+id/profilecreate2_tv_phone" />
-
-    <TextView
-        android:id="@+id/profilecreate2_tv_makemodel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/profilecreate2_et_phone"
-        android:layout_alignStart="@+id/profilecreate2_et_phone"
-        android:layout_below="@+id/profilecreate2_et_phone"
-        android:layout_marginTop="15dp"
-        android:text="Car Make And Model"
-        android:textColor="#ede698" />
+        android:layout_below="@+id/profilecreate2_et_name" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:inputType="text"
-        android:background="@drawable/roundedrectangle"
+        android:background="#333937"
+        android:textColor="#FFFFFF"
         android:ems="10"
-        android:layout_below="@+id/profilecreate2_tv_makemodel"
-        android:layout_alignLeft="@+id/profilecreate2_tv_makemodel"
-        android:layout_alignStart="@+id/profilecreate2_tv_makemodel"
-        android:layout_marginTop="15dp"
+        android:hint="Car Make And Model"
+        android:textColorHint="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_phone"
+        android:layout_marginTop="40dp"
         android:id="@+id/profilecreate2_et_model" />
-
-    <TextView
-        android:id="@+id/profilecreate2_tv_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/profilecreate2_et_model"
-        android:layout_alignStart="@+id/profilecreate2_et_model"
-        android:layout_below="@+id/profilecreate2_et_model"
-        android:layout_marginTop="15dp"
-        android:text="Car Year"
-        android:textColor="#ede698" />
 
     <EditText
         android:id="@+id/profilecreate2_et_year"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/profilecreate2_et_model"
-        android:layout_alignRight="@+id/profilecreate2_et_model"
-        android:layout_below="@+id/profilecreate2_tv_year"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/roundedrectangle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Car Year"
+        android:textColorHint="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_model"
+        android:layout_marginTop="40dp"
+        android:background="#333937"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="number" />
 
-    <TextView
-        android:id="@+id/profilecreate2_tv_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/profilecreate2_et_year"
-        android:layout_alignStart="@+id/profilecreate2_et_year"
-        android:layout_below="@+id/profilecreate2_et_year"
-        android:layout_marginTop="15dp"
-        android:text="Car Color"
-        android:textColor="#ede698" />
-
     <EditText
         android:id="@+id/profilecreate2_et_color"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/profilecreate2_tv_color"
-        android:layout_alignStart="@+id/profilecreate2_tv_color"
-        android:layout_below="@+id/profilecreate2_tv_color"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/roundedrectangle"
+        android:hint="Car Color"
+        android:textColorHint="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_year"
+        android:layout_marginTop="40dp"
+        android:background="#333937"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="text" />
 
@@ -143,21 +106,59 @@
         android:layout_alignLeft="@+id/profilecreate2_et_color"
         android:layout_alignRight="@+id/profilecreate2_et_color"
         android:layout_alignStart="@+id/profilecreate2_et_color"
-        android:layout_below="@+id/profilecreate2_tv_permit"
+        android:layout_below="@+id/profilecreate2_et_color"
         android:textColor="#000000"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="40dp" />
 
-    <TextView
-        android:id="@+id/profilecreate2_tv_permit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Permit Type"
-        android:textColor="#ede698"
-        android:layout_marginTop="15dp"
+    <View  android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_name"
+        android:id="@+id/profilecreate2_nameview"
+        android:layout_alignRight="@+id/profilecreate2_et_phone"
+        android:layout_alignEnd="@+id/profilecreate2_et_phone"
+        android:layout_alignLeft="@+id/profilecreate2_et_name"
+        android:layout_alignStart="@+id/profilecreate2_et_name" />
+
+    <View  android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_phone"
+        android:layout_alignLeft="@+id/profilecreate2_et_phone"
+        android:layout_alignRight="@+id/profilecreate2_et_phone"
+        android:id="@+id/profilecreate2_phoneview" />
+
+    <View  android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_model"
+        android:layout_alignLeft="@+id/profilecreate2_et_model"
+        android:layout_alignRight="@+id/profilecreate2_et_model"
+        android:id="@+id/profilecreate2_makeview" />
+
+    <View  android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/profilecreate2_et_year"
+        android:layout_alignLeft="@+id/profilecreate2_et_year"
+        android:layout_alignRight="@+id/profilecreate2_et_year"
+        android:id="@+id/profilecreate2_yearview" />
+
+    <View  android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
         android:layout_below="@+id/profilecreate2_et_color"
         android:layout_alignLeft="@+id/profilecreate2_et_color"
-        android:layout_alignStart="@+id/profilecreate2_et_color" />
+        android:layout_alignRight="@+id/profilecreate2_et_color"
+        android:id="@+id/profilecreate2_colorview" />
 
-
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/icon2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
 
 </RelativeLayout>

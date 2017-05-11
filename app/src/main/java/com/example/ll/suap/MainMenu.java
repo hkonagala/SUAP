@@ -108,12 +108,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
                 break;
             case R.id.main_finderbutton:
                 if(pass)
-                    //startActivity(new Intent(MainMenu.this, Finder.class));
-                {
+                    startActivity(new Intent(MainMenu.this, Finder.class));
+                /*{
                     Intent myIntent = new Intent(MainMenu.this, Finder.class);
                     myIntent.putExtra("driver_user_id", activeUser.getUserId());//TODO check this
 
-                }
+                }*/
                 else
                     getDriverInfo();
                 break;
@@ -159,9 +159,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
         finish();
         startActivity(new Intent(MainMenu.this,Driving.class));
-        Intent myIntent = new Intent(MainMenu.this, Driving.class);
+        /*Intent myIntent = new Intent(MainMenu.this, Driving.class);
         myIntent.putExtra("rider_user_id", userInformation.userId);//TODO check this
-
+*/
     }
 
 }

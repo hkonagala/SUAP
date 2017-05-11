@@ -45,10 +45,10 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     private DatabaseReference mydb;
     private DatabaseReference mydbactiveusers;
     private DatabaseReference mydbrides;
-    String pickupLocation, additionalInfo, riderName, riderPhone;
+    String pickupLocation, additionalInfo, riderName, riderPhone;// dName;
     String riderId;
     private ActiveUser riderUser;
-    TextView driverName, location_here;
+    TextView driverName, location_here;// passengerName,riderInfo;
     private String rideId;
     LocationManager locationManager;
     private LatLng currentLocation;
@@ -68,6 +68,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         riderPhone = myIntent.getStringExtra("rider_user_phone");
         riderId = myIntent.getStringExtra("rider_user_id");
         rideId = myIntent.getStringExtra("ride_id");
+        //dName = myIntent.getStringExtra("driver_user_name");
 
         mydb = FirebaseDatabase.getInstance().getReference();
         mydbactiveusers = mydb.child("active_users");
@@ -101,7 +102,9 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         cancel = (Button) findViewById(R.id.driver_found_cancelbutton);
         passenger = (Button) findViewById(R.id.driver_found_passengerbutton);
         driverName = (TextView) findViewById(R.id.driver_found_drivername_tv);
+        //passengerName = (TextView) findViewById(R.id.driver_found_passengername_tv);
         location_here = (TextView) findViewById(R.id.driver_found_location_tv);
+        //riderInfo = (TextView) findViewById(R.id.driver_found_additionalInfo_tv);
 
 
         menu.setOnClickListener(this);
@@ -136,6 +139,12 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onResume() {
         super.onResume();
+
+        //passengerName.setText(riderName);
+        //driverName.setText(dName);
+        /*location_here.setText();
+        riderInfo.setText();*/ //TODO get rider info from passenger module
+
         call.setText("CALL " + riderName);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

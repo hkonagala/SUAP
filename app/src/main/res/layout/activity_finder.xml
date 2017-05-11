@@ -25,7 +25,7 @@
             android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="43dp"
             android:id="@+id/finder_tv_count"
             android:layout_below="@+id/view"
             android:layout_centerHorizontal="true" />
@@ -38,42 +38,24 @@
             android:textAlignment="center"
             android:entries="@array/location_array"
             android:spinnerMode="dropdown"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/finder_tv_count"
-            android:layout_alignStart="@+id/finder_tv_count"
-            android:layout_alignRight="@+id/finder_tv_count"
-            android:layout_alignEnd="@+id/finder_tv_count" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:inputType="text"
-            android:text="additional info"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:ems="10"
-            android:background="@drawable/roundedrectangle"
-            android:layout_marginTop="48dp"
-            android:id="@+id/finder_et_info"
-            android:layout_below="@+id/finder_spinner_location"
-            android:layout_alignLeft="@+id/finder_spinner_location"
-            android:layout_alignStart="@+id/finder_spinner_location"
-            android:layout_alignRight="@+id/finder_spinner_location"
-            android:layout_alignEnd="@+id/finder_spinner_location" />
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/imageView6"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
-            android:text="Post Pick up"
+            android:text="SUAP!"
             android:background="@drawable/roundedgreenrectangle"
             android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
             android:id="@+id/finder_pickupbutton"
-            android:layout_below="@+id/finder_et_info"
+            android:layout_below="@+id/finder_spinner_location"
+            android:layout_alignLeft="@+id/imageView6"
+            android:layout_alignStart="@+id/imageView6"
             android:layout_alignRight="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_alignLeft="@+id/imageView"
-            android:layout_alignStart="@+id/imageView" />
+            android:layout_alignEnd="@+id/imageView" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -106,6 +88,15 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="113dp"
+            android:layout_height="113dp"
+            android:layout_below="@+id/finder_tv_count"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            app:srcCompat="@drawable/locationicon" />
+
     </RelativeLayout>
 
     <LinearLayout
@@ -118,9 +109,15 @@
 
         <ImageView
             android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/personicon" />
+
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/personicon" />
+            android:layout_below="@+id/imageView3"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/finder_profilebutton"
@@ -129,6 +126,12 @@
             android:text="Profile"
             android:background="@drawable/roundedgreenrectangle"
             android:textColor="#FFFFFF"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/finder_profilebutton"
+            android:layout_marginTop="23dp" />
 
         <Button
             android:id="@+id/finder_logoutbutton"

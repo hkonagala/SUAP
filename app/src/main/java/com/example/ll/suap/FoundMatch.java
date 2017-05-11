@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,11 +38,12 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     ActiveUser activeUser;
     private DatabaseReference mydb;
     private DatabaseReference mydbactiveusers, mydbrides;
-    String pickupLocation, additionalInfo, driverName, driverPhone;
+    String pickupLocation, additionalInfo, driverName, driverPhone, passengerName;
     String driverId;
     private ActiveUser driverUser;
     ImageView passengerImage;
     private String rideId;
+    TextView pName, dName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
         driverName = myIntent.getStringExtra("driver_user_name");
         driverPhone = myIntent.getStringExtra("driver_user_phone");
         driverId = myIntent.getStringExtra("driver_user_id");
+        passengerName = myIntent.getStringExtra("rider_user_name");
 
         mydb = FirebaseDatabase.getInstance().getReference();
         mydbactiveusers = mydb.child("active_users");
@@ -82,17 +85,19 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
             startActivity(new Intent(this, BeginningActivity.class));
         }
 
-        driver = (Button) findViewById(R.id.foundmatch_driverbutton);
+       // driver = (Button) findViewById(R.id.foundmatch_driverbutton);
         menu = (Button) findViewById(R.id.foundmatch_menubutton);
         confirm = (Button) findViewById(R.id.foundmatch_confirmbutton);
         cancel = (Button) findViewById(foundmatch_cancelbutton);
         profile = (Button) findViewById(R.id.foundmatch_profilebutton);
         logout = (Button) findViewById(R.id.foundmatch_logoutbutton);
         passengerImage = (ImageView) findViewById(R.id.foundmatch_passengerimgage);
+        pName = (TextView) findViewById(R.id.foundmatch_passengername_tv);
+        dName = (TextView) findViewById(R.id.foundmatch_drivername_tv);
 
 
         //TODO display passenger name/picture in imageview2
-        driver.setOnClickListener(this);
+       // driver.setOnClickListener(this);
         confirm.setOnClickListener(this);
         cancel.setOnClickListener(this);
         menu.setOnClickListener(this);
@@ -108,13 +113,16 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onResume() {
         super.onResume();
+        dName.setText(driverName);
+        pName.setText(passengerName);
+
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.foundmatch_driverbutton:
+            /*case R.id.foundmatch_driverbutton:
                 startActivity(new Intent(this, OtherProfile.class));//click on driver image should take the users to their profile
-                break;
+                break;*/
             case R.id.foundmatch_menubutton:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;

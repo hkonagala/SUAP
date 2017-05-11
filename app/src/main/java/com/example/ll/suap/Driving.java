@@ -38,7 +38,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mydbactiveusers;
     private DatabaseReference mydbrides;
     private DatabaseReference mydb;
-    String riderId;
+    String riderId,dName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,6 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        //String name, String phone, String makeModel, String year, String color, String permit, Long timestamp, Boolean matched, String match, double latitude, double longitude
         SharedPreferences userDetails = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (user != null) {
             userInformation = new UserInformation(user.getUid(),
@@ -108,6 +107,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
                                         myIntent.putExtra("rider_user_name", rider.getName());
                                         myIntent.putExtra("rider_phone_number", rider.getPhone());
                                         myIntent.putExtra("ride_id", rideId);
+                                        myIntent.putExtra("driver_user_name",userInformation.name);
                                         finish();
                                         startActivity(myIntent);
                                     }
@@ -159,7 +159,7 @@ public class Driving extends AppCompatActivity implements View.OnClickListener {
 
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
-        mydbactiveusers.child(riderId).child("myState").setValue(offline);//TODO check this
+       // mydbactiveusers.child(riderId).child("myState").setValue(offline);//TODO check this
     }
 
     @Override
