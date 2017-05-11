@@ -170,6 +170,22 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
 
             }
         });
+        /*mydbrides.child(rideId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Ride currentRide = dataSnapshot.getValue(Ride.class);
+                if (currentRide.status.equals(Ride.ride_status.completed)){
+                    Toast.makeText(getApplicationContext(), "Driver completed the ride"
+                            , Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(DriverArriving.this, MainMenu.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
     }
 
 
@@ -227,7 +243,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
         mydbactiveusers.child(driverId).child("myState").setValue(offline);
-        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.cancelled);
+        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.completed);//TODO check this
     }
 
     @Override

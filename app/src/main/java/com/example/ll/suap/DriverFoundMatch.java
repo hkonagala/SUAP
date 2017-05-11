@@ -219,7 +219,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
         mydbactiveusers.child(riderId).child("myState").setValue(offline);
-        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.cancelled);
+        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.completed);//TODO check this
     }
 
     @Override

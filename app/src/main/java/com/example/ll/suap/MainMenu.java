@@ -160,7 +160,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
         finish();
         startActivity(new Intent(MainMenu.this,Driving.class));
         /*Intent myIntent = new Intent(MainMenu.this, Driving.class);
-        myIntent.putExtra("rider_user_id", userInformation.userId);//TODO check this
+        myIntent.putExtra("rider_user_id", userInformation.userId);
 */
     }
 
