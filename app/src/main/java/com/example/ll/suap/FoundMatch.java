@@ -169,7 +169,7 @@ public class FoundMatch extends AppCompatActivity implements View.OnClickListene
     private void getDriverInfo() {
 
         rideId = getSaltString();
-        Ride ride = new Ride(userInformation.userId, String.valueOf(driverId), rideId, Ride.ride_status.ongoing);
+        Ride ride = new Ride(userInformation.userId, String.valueOf(driverId), rideId, Ride.ride_status.ongoing, pickupLocation);
         mydbrides.child(rideId).setValue(ride);
         mydbactiveusers.child(driverId).child("rideId").setValue(rideId);
     }

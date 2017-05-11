@@ -53,6 +53,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     LocationManager locationManager;
     private LatLng currentLocation;
     private Handler handler = new Handler();
+    private TextView passengerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +103,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
         cancel = (Button) findViewById(R.id.driver_found_cancelbutton);
         passenger = (Button) findViewById(R.id.driver_found_passengerbutton);
         driverName = (TextView) findViewById(R.id.driver_found_drivername_tv);
-        //passengerName = (TextView) findViewById(R.id.driver_found_passengername_tv);
+        passengerName = (TextView) findViewById(R.id.driver_found_passengername_tv);
         location_here = (TextView) findViewById(R.id.driver_found_location_tv);
         //riderInfo = (TextView) findViewById(R.id.driver_found_additionalInfo_tv);
 
@@ -122,10 +123,26 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Ride currentRide = dataSnapshot.getValue(Ride.class);
                 if (currentRide.status.equals(Ride.ride_status.completed)
-                        || currentRide.status.equals(Ride.ride_status.missed)) {
+                        || currentRide.status.equals(Ride.ride_status.missed)
+                        || currentRide.status.equals(Ride.ride_status.cancelled)) {
                     Toast.makeText(getApplicationContext(), "Passenger marked ride as " + currentRide.status
                             , Toast.LENGTH_LONG).show();
                     startActivity(new Intent(DriverFoundMatch.this, MainMenu.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        mydbrides.child(rideId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Ride currentRide = dataSnapshot.getValue(Ride.class);
+                if (currentRide.status.equals(Ride.ride_status.ongoing)) {
+                    location_here.setText(currentRide.pickupLocation);
                 }
             }
 
@@ -140,10 +157,10 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     protected void onResume() {
         super.onResume();
 
-        //passengerName.setText(riderName);
-        //driverName.setText(dName);
-        /*location_here.setText();
-        riderInfo.setText();*/ //TODO get rider info from passenger module
+        passengerName.setText(riderName);
+        driverName.setText(userInformation.name);
+        //location_here.setText();
+         //
 
         call.setText("CALL " + riderName);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -202,6 +219,7 @@ public class DriverFoundMatch extends AppCompatActivity implements View.OnClickL
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
         mydbactiveusers.child(riderId).child("myState").setValue(offline);
+        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.cancelled);
     }
 
     @Override

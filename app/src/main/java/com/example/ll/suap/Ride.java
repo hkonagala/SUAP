@@ -17,12 +17,14 @@ public class Ride {
     public String driverId;
     public String rideId;
     public ride_status status;
+    public String pickupLocation;
 
-    public Ride(String passengerId, String driverId, String rideId, Ride.ride_status status) {
+    public Ride(String passengerId, String driverId, String rideId, Ride.ride_status status, String pickupLocation) {
         this.passengerId = passengerId;
         this.driverId = driverId;
         this.rideId = rideId;
         this.status = status;
+        this.pickupLocation = pickupLocation;
     }
 
     public Ride() {

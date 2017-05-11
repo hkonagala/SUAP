@@ -207,6 +207,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(DriverArriving.this,BeginningActivity.class));
+                break;
             case R.id.driver_arriving_callbutton:
                 String number = "tel:"+ driverPhone.trim();
                 Log.d("DIALING: ", number);
@@ -226,6 +227,7 @@ public class DriverArriving extends AppCompatActivity implements View.OnClickLis
     private void signOffFromDatabase() {
         mydbactiveusers.child(userInformation.userId).child("myState").setValue(offline);
         mydbactiveusers.child(driverId).child("myState").setValue(offline);
+        mydbrides.child(rideId).child("status").setValue(Ride.ride_status.cancelled);
     }
 
     @Override

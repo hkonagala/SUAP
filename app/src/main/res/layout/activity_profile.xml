@@ -67,12 +67,25 @@
         android:textColor="#ede698" />
 
     <TextView
-        android:id="@+id/profile_personinfo_tv"
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#ede698"
+        android:layout_alignBaseline="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignRight="@+id/profile_personname_tv"
+        android:layout_alignEnd="@+id/profile_personname_tv" />
+
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_personname_tv"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="Other Info Here"
-        android:textColor="#ede698"/>
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="none"
+        android:singleLine="false"
+        android:textColor="#ede698" />
 </RelativeLayout>

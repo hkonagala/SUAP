@@ -47,8 +47,19 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         }
 
         userName = (TextView) findViewById(R.id.profile_personname_tv);
-        userInfo = (TextView) findViewById(R.id.profile_personinfo_tv);
+        //userInfo = (TextView) findViewById(R.id.profile_personinfo_tv);
         menu = (Button) findViewById(R.id.profile_menubutton);
+
+        userName = (TextView) findViewById(R.id.profile_personname_tv);
+        //userInfo = (TextView) findViewById(R.id.profile_personinfo_tv);
+        menu = (Button) findViewById(R.id.profile_menubutton);
+
+        userName.setText(userInformation.name);
+        String userInfo="Make & Model: "+userInformation.makeModel + "\n" +
+                "Year: "+userInformation.year+"\n"+
+                "Color: "+ userInformation.color+"\n" +
+                "Permit: "+userInformation.permit+"\n" ;
+
 
         //TODO drawer layout
         //  mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
