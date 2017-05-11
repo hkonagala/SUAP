@@ -52,6 +52,5 @@
             android:value="@string/google_maps_key" />
 
     </application>
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
+
 </manifest>
